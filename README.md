@@ -5,6 +5,9 @@ This Android app lets users keep and share their book reviews. A user can post a
 
 ## User Interface + Features
 
+### Welcome Screen
+Shows highlights of the app and provides options to sign up or log in 
+
 ### Sign-up / Login Screen
 Allows the user to sign up by entering basic details or login using their Google account
 
