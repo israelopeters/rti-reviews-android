@@ -28,10 +28,11 @@ Lets the user post a new review by selecting an image locally, adding the body t
 
 
 ## Data Source
-
+Coming soon
 ## Testing
-
+Coming soon
 ## Running the App 
+Coming soon
 
 ## Built With
 
