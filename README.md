@@ -23,6 +23,10 @@ Shows details of a posted review, including image, body text, number of likes, n
 ### Add New Review Screen
 Lets the user post a new review by selecting an image locally, adding the body text, and selecting the genre of the book.
 
+### Simple App Flow Diagram
+![rti-reviews-app-flow-diagram-2024-06-18-1053](https://github.com/user-attachments/assets/7ab39410-4d9f-4bb2-bf21-cce076a79404)
+
+
 ## Data Source
 
 ## Testing
