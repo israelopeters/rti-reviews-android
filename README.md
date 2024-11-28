@@ -1,3 +1,6 @@
+## RTI Reviews app specification
+An Android app for a community of bibliophiles to document and share their book reviews
+
 # RTI Reviews App
 This Android app lets users keep and share their book reviews. A user can post a review, view all the reviews on the app, filter reviews by book genre, and like and comment on other users' reviews. A user can delete their own posted reviews.
 

@@ -4,17 +4,14 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -87,7 +84,7 @@ fun AppLogin(
     modifier: Modifier = Modifier
 ) {
 
-    // TODO: Apply ViewModel
+    // TODO: Apply ViewModel (Best practice: https://developer.android.com/develop/ui/compose/text/user-input)
     var email by remember { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
 
