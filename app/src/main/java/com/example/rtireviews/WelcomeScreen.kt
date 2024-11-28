@@ -39,9 +39,13 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 fun WelcomeScreen(
     modifier: Modifier = Modifier
 ) {
-    // App Detail
-
-    // App Login
+    Column (modifier = modifier.fillMaxSize()) {
+        AppDetails(
+            image = R.drawable.welcome_screen_image,
+            header = R.string.welcome_screen_header,
+        )
+        AppLogin(onLogIn = {})
+    }
 
     // Sign-up CTA
 }
@@ -96,10 +100,10 @@ fun AppLogin(
             value = email,
             onValueChange = { email = it },
             label = { Text("Email") },
-            shape = MaterialTheme.shapes.medium,
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxWidth()
+                .clip(MaterialTheme.shapes.medium)
         )
         TextField(
             value = password,
@@ -107,10 +111,10 @@ fun AppLogin(
             label = { Text("Password") },
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-            shape = MaterialTheme.shapes.medium,
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxWidth()
+                .clip(MaterialTheme.shapes.medium)
         )
         Button(
             onClick = onLogIn,
