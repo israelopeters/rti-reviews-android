@@ -58,15 +58,15 @@ fun AppDetails(
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+        modifier = modifier.padding(top = 48.dp)
     ) {
         Text(
             text = stringResource(header),
             style = MaterialTheme.typography.headlineLarge,
-            modifier = modifier
-                .padding(vertical = 8.dp)
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
                 .paddingFromBaseline(
-                    top = 24.dp,
+                    top = 8.dp,
                     bottom = 8.dp
                 )
         )
@@ -74,8 +74,8 @@ fun AppDetails(
             painter = painterResource(id = image),
             contentDescription = null,
             alignment = Alignment.Center,
-            modifier = modifier
-                .padding(48.dp)
+            modifier = Modifier
+                .padding(vertical = 24.dp, horizontal = 48.dp)
                 .clip(MaterialTheme.shapes.medium)
         )
     }
@@ -144,7 +144,7 @@ fun AppLoginPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun WelcomeScreenPreview() {
     RTIReviewsTheme {
