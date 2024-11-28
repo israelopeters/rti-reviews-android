@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RTI Reviews</string>
+    <string name="welcome_screen_header">Welcome to RTI Reviews</string>
 </resources>
