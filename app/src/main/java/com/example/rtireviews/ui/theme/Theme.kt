@@ -289,6 +289,7 @@ fun RTIReviewsTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = typography,
+        shapes = shapes,
         content = content
     )
 }
