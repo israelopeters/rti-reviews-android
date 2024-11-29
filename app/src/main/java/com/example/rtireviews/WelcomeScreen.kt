@@ -37,15 +37,18 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 fun WelcomeScreen(
     modifier: Modifier = Modifier
 ) {
-    Column (modifier = modifier.fillMaxSize()) {
+    Column (
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.fillMaxSize()
+    ) {
         AppDetails(
             image = R.drawable.welcome_screen_image,
             header = R.string.welcome_screen_header,
         )
-        AppLogin(onLogIn = {})
+        AppLogin(onLogIn = { })
+        AppSignUp()
     }
-
-    // Sign-up CTA
 }
 
 @Composable
