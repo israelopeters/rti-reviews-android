@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -76,7 +77,8 @@ fun AppDetails(
             contentDescription = null,
             alignment = Alignment.Center,
             modifier = Modifier
-                .padding(vertical = 24.dp, horizontal = 48.dp)
+                .size(240.dp)
+                .padding(8.dp)
                 .clip(MaterialTheme.shapes.medium)
         )
     }
