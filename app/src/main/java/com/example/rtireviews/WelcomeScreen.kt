@@ -100,7 +100,7 @@ fun AppLogin(
         TextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text("Email") },
+            label = { Text(stringResource(R.string.email)) },
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxWidth()
@@ -109,7 +109,7 @@ fun AppLogin(
         TextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Password") },
+            label = { Text(stringResource(R.string.password)) },
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             modifier = Modifier
@@ -119,9 +119,11 @@ fun AppLogin(
         )
         Button(
             onClick = onLogIn,
-            modifier = modifier.fillMaxWidth().padding(8.dp)
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(8.dp)
         ) {
-            Text("Log in")
+            Text(stringResource(R.string.log_in))
         }
     }
 }
@@ -135,13 +137,13 @@ fun AppSignUp(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.padding(8.dp)
     ) {
-        Text("Not registered yet?")
+        Text(stringResource(R.string.not_yet_registered))
 
         OutlinedButton(
             onClick = { }, //TODO Implement navigation
             modifier = Modifier.padding(8.dp)
         ) {
-            Text("Sign-up")
+            Text(stringResource(R.string.sign_up))
         }
     }
 }
