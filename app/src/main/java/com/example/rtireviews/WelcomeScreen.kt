@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -122,6 +123,26 @@ fun AppLogin(
     }
 }
 
+@Composable
+fun AppSignUp(
+    modifier: Modifier =  Modifier
+) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.padding(8.dp)
+    ) {
+        Text("Not registered yet?")
+
+        OutlinedButton(
+            onClick = { }, //TODO Implement navigation
+            modifier = Modifier.padding(8.dp)
+        ) {
+            Text("Sign-up")
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun AppDetailsPreview() {
@@ -138,6 +159,14 @@ fun AppDetailsPreview() {
 fun AppLoginPreview() {
     RTIReviewsTheme {
         AppLogin(onLogIn = {})
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun AppSignUpPreview() {
+    RTIReviewsTheme {
+        AppSignUp()
     }
 }
 
