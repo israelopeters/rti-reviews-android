@@ -8,6 +8,8 @@ This Android app lets users keep and share their book reviews. A user can post a
 
 ### Welcome Screen
 Shows highlights of the app and provides options to sign up or log in.
+![RTI Reviews - Light Theme.jpg](..%2F..%2FDownloads%2FRTI%20Reviews%20-%20Light%20Theme.jpg)
+![RTI Reviews - Dark Theme.jpg](..%2F..%2FDownloads%2FRTI%20Reviews%20-%20Dark%20Theme.jpg)
 
 ### Sign-up / Login Screen
 Allows the user to sign up by entering basic details or login using their Google account.
