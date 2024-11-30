@@ -30,16 +30,18 @@ class MainActivity : ComponentActivity() {
 
 @Preview(
     showBackground = true,
+    showSystemUi = true,
     uiMode = UI_MODE_NIGHT_NO,
     name = "DefaultPreviewLight"
 )
 @Preview(
     showBackground = true,
+    showSystemUi = true,
     uiMode = UI_MODE_NIGHT_YES,
     name = "DefaultPreviewDark"
 )
 @Composable
-fun GreetingPreview() {
+fun AppPreview() {
     RTIReviewsTheme {
         WelcomeScreen()
     }

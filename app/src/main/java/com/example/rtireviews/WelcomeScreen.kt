@@ -3,6 +3,7 @@ package com.example.rtireviews
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -41,7 +42,9 @@ fun WelcomeScreen(
     Column (
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.fillMaxSize()
+        modifier = modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
     ) {
         AppDetails(
             image = R.drawable.welcome_screen_image,
@@ -66,6 +69,7 @@ fun AppDetails(
             text = stringResource(header),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onBackground,
             modifier = Modifier
                 .paddingFromBaseline(
                     top = 8.dp,
@@ -139,7 +143,10 @@ fun AppSignUp(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.padding(8.dp)
     ) {
-        Text(stringResource(R.string.not_yet_registered))
+        Text(
+            text = stringResource(R.string.not_yet_registered),
+            color = MaterialTheme.colorScheme.onBackground
+        )
 
         OutlinedButton(
             onClick = { }, //TODO Implement navigation
