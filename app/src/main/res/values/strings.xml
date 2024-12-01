@@ -8,4 +8,7 @@
     <string name="sign_up">Sign Up</string>
     <string name="arrow_back">Arrow back</string>
     <string name="cancel">Cancel</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="country">Country</string>
 </resources>
