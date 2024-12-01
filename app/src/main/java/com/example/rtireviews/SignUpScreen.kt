@@ -41,8 +41,9 @@ fun SignUpScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .padding(padding)
                 .fillMaxSize()
+                .padding(padding)
+                .padding(24.dp)
         ) {
             Spacer(Modifier.height(24.dp))
             // UserDetailsForm()
