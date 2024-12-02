@@ -90,6 +90,8 @@ fun SignUpScreenTopBar(modifier: Modifier = Modifier) {
 fun UserDetailsForm(
     modifier: Modifier = Modifier
 ) {
+
+    // Implement User object and viewModel here
     var firstName by rememberSaveable { mutableStateOf("") }
     var lastName by rememberSaveable { mutableStateOf("") }
     var country by rememberSaveable { mutableStateOf("") }
