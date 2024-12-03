@@ -36,10 +36,10 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
 fun SignUpScreen(
+    onSignUpClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
-        topBar = { SignUpScreenTopBar() },
         modifier = modifier
     ) { padding ->
         Column(
@@ -52,36 +52,13 @@ fun SignUpScreen(
         ) {
             UserDetailsForm()
             Button(
-                onClick = { },
+                onClick = onSignUpClicked,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp)
             ) {
                 Text(stringResource(R.string.sign_up))
             }
-        }
-    }
-}
-
-@Composable
-fun SignUpScreenTopBar(modifier: Modifier = Modifier) {
-    Row(
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier.padding(16.dp).fillMaxWidth()
-    ) {
-        IconButton( onClick = {} ) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = stringResource(R.string.arrow_back)
-            )
-        }
-        Text(
-            text = stringResource(R.string.sign_up),
-            style = MaterialTheme.typography.titleLarge
-        )
-        TextButton( onClick = {} ) {
-            Text(stringResource(R.string.cancel))
         }
     }
 }
@@ -167,6 +144,6 @@ fun UserDetailsForm(
 @Composable
 fun SignUpScreenPreview() {
     RTIReviewsTheme {
-        SignUpScreen()
+        SignUpScreen(onSignUpClicked = { })
     }
 }

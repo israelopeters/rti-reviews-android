@@ -11,4 +11,6 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="country">Country</string>
+    <string name="posted_reviews">Reviews</string>
+    <string name="space_filler">"      "</string>
 </resources>

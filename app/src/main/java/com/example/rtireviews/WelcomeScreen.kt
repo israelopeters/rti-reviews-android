@@ -37,6 +37,8 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
 fun WelcomeScreen(
+    onLogInClicked: () -> Unit,
+    onSignUpClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column (
@@ -50,8 +52,8 @@ fun WelcomeScreen(
             image = R.drawable.welcome_screen_image,
             header = R.string.welcome_screen_header,
         )
-        AppLogin(onLogIn = { })
-        AppSignUp()
+        AppLogin(onLogInClicked = { })
+        AppSignUp(onSignUp = onSignUpClicked)
     }
 }
 
@@ -90,7 +92,7 @@ fun AppDetails(
 
 @Composable
 fun AppLogin(
-    onLogIn: () -> Unit,
+    onLogInClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
 
@@ -124,7 +126,7 @@ fun AppLogin(
                 .clip(MaterialTheme.shapes.medium)
         )
         Button(
-            onClick = onLogIn,
+            onClick = onLogInClicked,
             modifier = modifier
                 .fillMaxWidth()
                 .padding(8.dp)
@@ -136,6 +138,7 @@ fun AppLogin(
 
 @Composable
 fun AppSignUp(
+    onSignUp: () -> Unit,
     modifier: Modifier =  Modifier
 ) {
     Column(
@@ -149,7 +152,7 @@ fun AppSignUp(
         )
 
         OutlinedButton(
-            onClick = { }, //TODO Implement navigation
+            onClick = onSignUp,
             modifier = Modifier.padding(8.dp)
         ) {
             Text(stringResource(R.string.sign_up))
@@ -172,7 +175,7 @@ fun AppDetailsPreview() {
 @Composable
 fun AppLoginPreview() {
     RTIReviewsTheme {
-        AppLogin(onLogIn = {})
+        AppLogin(onLogInClicked = { })
     }
 }
 
@@ -180,7 +183,7 @@ fun AppLoginPreview() {
 @Composable
 fun AppSignUpPreview() {
     RTIReviewsTheme {
-        AppSignUp()
+        AppSignUp(onSignUp = { })
     }
 }
 
@@ -188,6 +191,9 @@ fun AppSignUpPreview() {
 @Composable
 fun WelcomeScreenPreview() {
     RTIReviewsTheme {
-        WelcomeScreen()
+        WelcomeScreen(
+            onLogInClicked = { },
+            onSignUpClicked = { }
+        )
     }
 }

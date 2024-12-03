@@ -5,4 +5,4 @@ import androidx.compose.ui.Modifier
 
 
 @Composable
-fun ReviewsApp(modifier: Modifier = Modifier) { } //TODO: Implement home page functionality
+fun ReviewsHomeScreen(modifier: Modifier = Modifier) { }
