@@ -78,7 +78,8 @@ fun ReviewsApp(
             }
             composable(route = ReviewsScreen.SignUp.name) {
                 SignUpScreen(
-                    onSignUpClicked = { navController.navigate(ReviewsScreen.SignUp.name)},
+                    // Implement successful signup fragment or screen
+                    onSignUpClicked = { navController.navigate(ReviewsScreen.Welcome.name)},
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(8.dp)
