@@ -26,7 +26,7 @@ Shows highlights of the app and provides options to sign up or log in.
 
 
 ### Sign-up Screen
-Allows the user to sign up by entering basic details or login using their Google account.
+Allows the user to sign up by entering basic details.
 
 ### Home Screen
 Shows a list of posted reviews, which can be filtered by book genre and date.
