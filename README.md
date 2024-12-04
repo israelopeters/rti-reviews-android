@@ -41,7 +41,7 @@ Allows the user to sign up by entering basic details.
       </td>
   </body>
 </table>
-Embedded graphic <a href="http://www.freepik.com">designed by pch.vector / Freepik</a>
+Embedded graphic <a href="http://www.freepik.com">designed by / Freepik</a>
 
 ### Sign-Up Success Screen
 Notifies the user of a successful sign up and offers an option to log in.
