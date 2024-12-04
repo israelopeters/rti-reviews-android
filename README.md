@@ -25,7 +25,7 @@ Shows highlights of the app and provides options to sign up or log in.
 </table>
 
 
-### Sign-up Screen
+### Sign-Up Screen
 Allows the user to sign up by entering basic details.
 <table>
   <body>
@@ -34,15 +34,32 @@ Allows the user to sign up by entering basic details.
       <th>Dark Mode</th>
     <tr>
       <td>
-        <img src=https://github.com/user-attachments/assets/87e2f0e9-66b1-47d7-9b3b-cd77aeee6749 width="260" height="542" />
+        <img src=https://github.com/user-attachments/assets/f2252a32-6933-4f3d-8e99-914f91098079 width="260" height="542" />
       </td>
       <td>
-        <img src=https://github.com/user-attachments/assets/f0b04884-fd58-4f88-89fe-c631dcfe6e3d width="260" height="542" />
+        <img src=https://github.com/user-attachments/assets/139128f0-d73f-4685-8b42-7e3b4abdf2ac width="260" height="542" />
       </td>
-    </tr>
   </body>
 </table>
+Embedded graphic <a href="http://www.freepik.com">designed by pch.vector / Freepik</a>
 
+### Sign-Up Success Screen
+Notifies the user of a successful sign up and offers an option to log in.
+<table>
+  <body>
+    <tr>
+      <th>Light Mode</th>
+      <th>Dark Mode</th>
+    <tr>
+      <td>
+        <img src=https://github.com/user-attachments/assets/5a1dabe5-9864-4611-b867-ec2ae5523f69 width="260" height="542" />
+      </td>
+      <td>
+        <img src=https://github.com/user-attachments/assets/8cffe25a-b49e-43ad-9706-5eaba0f32011 width="260" height="542" />
+      </td>
+  </body>
+</table>
+Embedded graphic <a href="http://www.freepik.com">designed by pch.vector / Freepik</a>
 
 ### Home Screen
 Shows a list of posted reviews, which can be filtered by book genre and date.
