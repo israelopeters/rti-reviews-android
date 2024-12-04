@@ -15,10 +15,10 @@ Shows highlights of the app and provides options to sign up or log in.
       <th>Dark Mode</th>
     <tr>
       <td>
-        <img src=https://github.com/user-attachments/assets/953abe3f-e870-4f0d-9800-4a43586a8a4e width="260" height="542" />
+        <img src=https://github.com/user-attachments/assets/953abe3f-e870-4f0d-9800-4a43586a8a4e width="240" height="500" />
       </td>
       <td>
-        <img src=https://github.com/user-attachments/assets/66d7e72b-fee1-45b8-bf3b-fb85be0f2bab width="260" height="542" />
+        <img src=https://github.com/user-attachments/assets/66d7e72b-fee1-45b8-bf3b-fb85be0f2bab width="240" height="500" />
       </td>
     </tr>
   </body>
@@ -34,10 +34,10 @@ Allows the user to sign up by entering basic details.
       <th>Dark Mode</th>
     <tr>
       <td>
-        <img src=https://github.com/user-attachments/assets/f2252a32-6933-4f3d-8e99-914f91098079 width="260" height="542" />
+        <img src=https://github.com/user-attachments/assets/f2252a32-6933-4f3d-8e99-914f91098079 width="240" height="500" />
       </td>
       <td>
-        <img src=https://github.com/user-attachments/assets/139128f0-d73f-4685-8b42-7e3b4abdf2ac width="260" height="542" />
+        <img src=https://github.com/user-attachments/assets/139128f0-d73f-4685-8b42-7e3b4abdf2ac width="240" height="500" />
       </td>
   </body>
 </table>
@@ -52,10 +52,10 @@ Notifies the user of a successful sign up and offers an option to log in.
       <th>Dark Mode</th>
     <tr>
       <td>
-        <img src=https://github.com/user-attachments/assets/5a1dabe5-9864-4611-b867-ec2ae5523f69 width="260" height="542" />
+        <img src=https://github.com/user-attachments/assets/5a1dabe5-9864-4611-b867-ec2ae5523f69 width="240" height="500" />
       </td>
       <td>
-        <img src=https://github.com/user-attachments/assets/8cffe25a-b49e-43ad-9706-5eaba0f32011 width="260" height="542" />
+        <img src=https://github.com/user-attachments/assets/8cffe25a-b49e-43ad-9706-5eaba0f32011 width="240" height="500" />
       </td>
   </body>
 </table>
