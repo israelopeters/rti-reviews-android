@@ -6,8 +6,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
@@ -18,6 +20,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -42,17 +45,23 @@ fun SignUpScreen(
     onSignUpClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Scaffold(
+    Surface(
         modifier = modifier
-    ) { padding ->
+    ) {
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
                 .padding(24.dp)
         ) {
+            Image(
+                painter = painterResource(R.drawable.sign_up_image_3),
+                contentDescription = null,
+                modifier = Modifier
+                    .clip(MaterialTheme.shapes.medium)
+                    .size(200.dp)
+            )
             UserDetailsForm()
             Button(
                 onClick = onSignUpClicked,
@@ -80,17 +89,9 @@ fun UserDetailsForm(
 
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.padding(top = 24.dp)
     ) {
-        Image(
-            painter = painterResource(R.drawable.sign_up_image_3),
-            contentDescription = null,
-            alignment = Alignment.Center,
-            modifier = Modifier
-                .size(height = 240.dp, width = 340.dp)
-                .padding(8.dp)
-                .clip(MaterialTheme.shapes.medium)
-        )
         TextField(
             value = firstName,
             onValueChange = { firstName = it },
@@ -143,13 +144,11 @@ fun UserDetailsForm(
 
 @Preview(
     showBackground = true,
-    //showSystemUi = true,
     uiMode = UI_MODE_NIGHT_NO,
     name = "DefaultPreviewLight"
 )
 @Preview(
     showBackground = true,
-    showSystemUi = true,
     uiMode = UI_MODE_NIGHT_YES,
     name = "DefaultPreviewDark"
 )
