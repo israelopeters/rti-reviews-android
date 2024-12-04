@@ -53,7 +53,7 @@ fun WelcomeScreen(
             header = R.string.welcome_screen_header,
         )
         AppLogin(onLogInClicked = { })
-        AppSignUp(onSignUp = onSignUpClicked)
+        AppSignUp(onSignUpClicked = onSignUpClicked)
     }
 }
 
@@ -138,7 +138,7 @@ fun AppLogin(
 
 @Composable
 fun AppSignUp(
-    onSignUp: () -> Unit,
+    onSignUpClicked: () -> Unit,
     modifier: Modifier =  Modifier
 ) {
     Column(
@@ -152,7 +152,7 @@ fun AppSignUp(
         )
 
         OutlinedButton(
-            onClick = onSignUp,
+            onClick = onSignUpClicked,
             modifier = Modifier.padding(8.dp)
         ) {
             Text(stringResource(R.string.sign_up))
@@ -183,7 +183,7 @@ fun AppLoginPreview() {
 @Composable
 fun AppSignUpPreview() {
     RTIReviewsTheme {
-        AppSignUp(onSignUp = { })
+        AppSignUp(onSignUpClicked = { })
     }
 }
 

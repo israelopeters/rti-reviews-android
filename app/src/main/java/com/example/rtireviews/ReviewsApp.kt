@@ -37,6 +37,7 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 enum class ReviewsScreen(@StringRes val title: Int) {
     Welcome(title = R.string.welcome_screen_header),
     SignUp(title = R.string.sign_up),
+    SignUpSuccess(title = R.string.sign_up_success),
     ReviewsHome(title  = R.string.posted_reviews)
 }
 
@@ -52,7 +53,9 @@ fun ReviewsApp(
 
     Scaffold (
         topBar = {
-            if (currentScreen.name != ReviewsScreen.Welcome.name) {
+            if (currentScreen.name != ReviewsScreen.Welcome.name &&
+                currentScreen.name != ReviewsScreen.SignUpSuccess.name
+                ) {
                 ReviewsAppTopBar(
                     currentScreen = currentScreen,
                     canNavigate = navController.previousBackStackEntry != null,
@@ -78,8 +81,15 @@ fun ReviewsApp(
             }
             composable(route = ReviewsScreen.SignUp.name) {
                 SignUpScreen(
-                    // Implement successful signup fragment or screen
-                    onSignUpClicked = { navController.navigate(ReviewsScreen.Welcome.name)},
+                    onSignUpClicked = { navController.navigate(ReviewsScreen.SignUpSuccess.name)},
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(8.dp)
+                )
+            }
+            composable(route = ReviewsScreen.SignUpSuccess.name) {
+                SignUpSuccessScreen(
+                    onLogInClicked = { navController.navigate(ReviewsScreen.Welcome.name)},
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(8.dp)

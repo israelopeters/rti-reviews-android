@@ -45,9 +45,7 @@ fun SignUpScreen(
     onSignUpClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Surface(
-        modifier = modifier
-    ) {
+    Surface(modifier = modifier) {
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,

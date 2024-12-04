@@ -13,4 +13,5 @@
     <string name="country">Country</string>
     <string name="posted_reviews">Reviews</string>
     <string name="space_filler">"      "</string>
+    <string name="sign_up_success">Sign Up Success!</string>
 </resources>
