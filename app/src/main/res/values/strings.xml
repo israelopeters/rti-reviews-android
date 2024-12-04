@@ -14,4 +14,6 @@
     <string name="posted_reviews">Reviews</string>
     <string name="space_filler">"      "</string>
     <string name="sign_up_success">Sign Up Success!</string>
+    <string name="account_created">Account Created!</string>
+    <string name="click_below_to_log_in">Click below to log in.</string>
 </resources>

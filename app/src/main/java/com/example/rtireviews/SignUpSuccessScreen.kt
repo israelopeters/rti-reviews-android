@@ -38,7 +38,7 @@ fun SignUpSuccessScreen(
                 .padding(24.dp)
         ) {
             Text(
-                text = "Account Created!",
+                text = stringResource(R.string.account_created),
                 style = MaterialTheme.typography.headlineLarge
             )
             Spacer(Modifier.height(8.dp))
@@ -50,7 +50,7 @@ fun SignUpSuccessScreen(
                     .clip(MaterialTheme.shapes.medium)
             )
             Text(
-                text = "Click below to log in.",
+                text = stringResource(R.string.click_below_to_log_in),
                 modifier = Modifier.padding(vertical = 8.dp)
             )
             OutlinedButton(
