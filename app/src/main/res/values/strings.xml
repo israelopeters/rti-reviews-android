@@ -18,4 +18,6 @@
     <string name="click_below_to_log_in">Click below to log in.</string>
     <string name="reviews">Reviews</string>
     <string name="menu">Menu</string>
+    <string name="profile">Profile</string>
+    <string name="search_for_reviews">Search for Reviews.</string>
 </resources>

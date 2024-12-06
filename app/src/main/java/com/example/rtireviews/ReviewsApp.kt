@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -92,7 +93,7 @@ fun ReviewsApp(
                 )
             }
             composable(route = ReviewsScreen.ReviewsHome.name) {
-                ReviewsHomeScreen()
+                //ReviewsHomeScreen()
             }
         }
     }
@@ -107,7 +108,7 @@ fun ReviewsAppTopBar(
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    TopAppBar(
+    CenterAlignedTopAppBar(
         title = {
             Text(
                 text = stringResource(currentScreen.title),
