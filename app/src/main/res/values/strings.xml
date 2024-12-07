@@ -20,4 +20,11 @@
     <string name="menu">Menu</string>
     <string name="profile">Profile</string>
     <string name="search_for_reviews">Search for Reviews.</string>
+    <string name="review_post_image">Review post image.</string>
+    <string name="lorem_ipsum_short_paragraph">Lorem ipsum dolor sit amet. Ea recusandae incidunt ea tempora omnis eum numquam vero est nostrum voluptas aut assumenda quia. Aut galisum quia et sunt galisum est omnis sunt. Ut quae voluptatibus sit iusto quos est eveniet quam et reiciendis sint ea nemo animi qui earum perferendis. In asperiores eaque qui laudantium fugit est sunt enim non veniam illum id sequi unde a voluptatem modi et autem commodi.</string>
+    <string name="review_title">Review Title</string>
+    <string name="author">Author</string>
+    <string name="time_posted">Time posted</string>
+    <string name="israel_peters">Israel Peters</string>
+    <string name="_26_min_ago">26 min ago</string>
 </resources>
