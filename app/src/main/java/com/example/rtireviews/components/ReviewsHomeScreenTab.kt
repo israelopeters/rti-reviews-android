@@ -19,7 +19,7 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ReviewHomeScreenTab(
+fun ReviewsHomeScreenTab(
     modifier: Modifier = Modifier
 ) {
     var state by remember { mutableStateOf(0) }
@@ -52,6 +52,6 @@ fun ReviewHomeScreenTab(
 @Composable
 fun ReviewHomeScreenTabPreview() {
     RTIReviewsTheme {
-        ReviewHomeScreenTab()
+        ReviewsHomeScreenTab()
     }
 }

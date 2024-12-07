@@ -40,7 +40,6 @@ fun ReviewsHomeScreen(
     ) {innerPadding ->
         Column(
             modifier = Modifier.padding(innerPadding)
-
         ) {
 
         }
