@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.rtireviews.components.ReviewsHomeScreenTab
 import com.example.rtireviews.components.ReviewsHomeTopBar
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
@@ -41,7 +42,7 @@ fun ReviewsHomeScreen(
         Column(
             modifier = Modifier.padding(innerPadding)
         ) {
-
+            ReviewsHomeScreenTab()
         }
 
     }
