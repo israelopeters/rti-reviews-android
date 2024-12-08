@@ -37,7 +37,7 @@ enum class ReviewsScreen(@StringRes val title: Int) {
     Welcome(title = R.string.welcome_screen_header),
     SignUp(title = R.string.sign_up),
     SignUpSuccess(title = R.string.sign_up_success),
-    ReviewsHome(title  = R.string.posted_reviews)
+    ReviewsHome(title  = R.string.reviews)
 }
 
 @Composable
@@ -94,14 +94,19 @@ fun ReviewsApp(
             }
             composable(route = ReviewsScreen.SignUpSuccess.name) {
                 SignUpSuccessScreen(
-                    onLogInClicked = { navController.navigate(ReviewsScreen.Welcome.name)},
+                    onLogInClicked = { navController.navigate(ReviewsScreen.ReviewsHome.name)},
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(8.dp)
                 )
             }
             composable(route = ReviewsScreen.ReviewsHome.name) {
-                //ReviewsHomeScreen()
+                ReviewsHomeScreen(
+                    onFabClicked = {},
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(8.dp)
+                )
             }
         }
     }
