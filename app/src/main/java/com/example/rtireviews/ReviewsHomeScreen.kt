@@ -16,8 +16,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat.getString
 import com.example.rtireviews.components.ReviewsListItem
 import com.example.rtireviews.data.Review
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
@@ -51,7 +53,7 @@ fun ReviewsSection(modifier: Modifier = Modifier) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(8.dp),
-        modifier = Modifier.padding(8.dp),
+        modifier = Modifier.padding(16.dp),
     ) {
         items(generateReviewsData()) {item ->
             ReviewsListItem(
@@ -68,15 +70,25 @@ private fun generateReviewsData(): List<Review> {
         reviewsData.add(
             Review(
                 title = "A Hot Lagos Afternoon",
-                body = R.string.lorem_ipsum_short_paragraph.toString(),
+                body = body,
                 image = R.drawable.a_hot_lagos_afternoon_cover,
                 author = "Israel Peters",
-                timePosted = R.string._26_min_ago.toString()
+                timePosted = "26 min ago"
             )
         )
     }
     return reviewsData
 }
+
+private val body = "A Hot Lagos Afternoon by Promise Onyekachukwu is an exceptional and " +
+        "tasteful collection of unashamed Nigerian stories. From the captivating" +
+        " first story, “A Hot Lagos Afternoon”, where a trip to a woman’s wedding " +
+        "quickly turns into her worse nightmare, to “Lagos Living”, where a " +
+        "23-year-old quickly lands himself in Nigeria's famous Kirikiri prison " +
+        "after a failed attempt at cybercrime, the author writes a mosaic of " +
+        "stories about marriage, love and life in the country, Nigeria. This " +
+        "debut collection will leave you feeling a whirlwind of emotions but, " +
+        "more importantly, realize that just anything is possible in Nigeria."
 
 @Preview(
     showBackground = true,

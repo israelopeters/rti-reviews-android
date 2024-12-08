@@ -41,10 +41,10 @@ fun ReviewsListItem(
             Image(
                 painter = painterResource(reviewItem.image),
                 contentDescription = stringResource(R.string.review_post_image),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().padding(top = 16.dp)
             )
             Column(
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(8.dp)
             ) {
                 Text(
                     text = reviewItem.title,
