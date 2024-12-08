@@ -42,7 +42,7 @@ fun ReviewsHomeScreen(
         Column(
             modifier = Modifier.padding(innerPadding)
         ) {
-            ReviewsHomeScreenTab()
+
         }
 
     }

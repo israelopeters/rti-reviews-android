@@ -2,6 +2,7 @@ package com.example.rtireviews.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -12,6 +13,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
@@ -29,43 +31,51 @@ fun ReviewsHomeTopBar(
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    TopAppBar(
-        title = {
-            Text(
-                text = stringResource(R.string.reviews),
-                style = MaterialTheme.typography.titleLarge
+    Surface(
+        modifier = modifier,
+        color = MaterialTheme.colorScheme.surface
+    ) {
+        Column {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = stringResource(R.string.reviews),
+                        style = MaterialTheme.typography.titleLarge
+                    )
+                },
+                navigationIcon = {
+                    IconButton(onClick = navigateUp) {
+                        Icon(
+                            imageVector = Icons.Filled.Menu,
+                            contentDescription = stringResource(R.string.menu)
+                        )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = navigateUp) {
+                        Icon(
+                            imageVector = Icons.Filled.Search,
+                            contentDescription = stringResource(R.string.search_for_reviews)
+                        )
+                    }
+                    IconButton(onClick = navigateUp) {
+                        Icon(
+                            imageVector = Icons.Filled.AccountCircle,
+                            contentDescription = stringResource(R.string.profile)
+                        )
+                    }
+                },
+                colors = topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    titleContentColor = MaterialTheme.colorScheme.onSurface
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
             )
-        },
-        navigationIcon = {
-            IconButton(onClick = navigateUp) {
-                Icon(
-                    imageVector = Icons.Filled.Menu,
-                    contentDescription = stringResource(R.string.menu)
-                )
-            }
-        },
-        actions = {
-            IconButton(onClick = navigateUp) {
-                Icon(
-                    imageVector = Icons.Filled.Search,
-                    contentDescription = stringResource(R.string.search_for_reviews)
-                )
-            }
-            IconButton(onClick = navigateUp) {
-                Icon(
-                    imageVector = Icons.Filled.AccountCircle,
-                    contentDescription = stringResource(R.string.profile)
-                )
-            }
-        },
-        colors = topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            titleContentColor = MaterialTheme.colorScheme.onSurface
-        ),
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-    )
+            ReviewsHomeScreenTab()
+        }
+    }
 }
 
 @Preview(
