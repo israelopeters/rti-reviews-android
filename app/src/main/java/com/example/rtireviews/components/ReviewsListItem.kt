@@ -39,7 +39,7 @@ fun ReviewsListItem(
             modifier = Modifier.padding(8.dp)
         ) {
             Image(
-                painter = painterResource(R.drawable.a_hot_lagos_afternoon_cover),
+                painter = painterResource(reviewItem.image),
                 contentDescription = stringResource(R.string.review_post_image),
                 modifier = Modifier.fillMaxWidth()
             )
@@ -47,13 +47,13 @@ fun ReviewsListItem(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.review_title),
+                    text = reviewItem.title,
                     style = MaterialTheme.typography.titleMedium,
                     maxLines = 1,
                     modifier = Modifier.padding(8.dp)
                 )
                 Text(
-                    text = stringResource(R.string.lorem_ipsum_short_paragraph),
+                    text = reviewItem.body,
                     overflow = TextOverflow.Ellipsis,
                     style = MaterialTheme.typography.bodyMedium,
                     maxLines = 4,
@@ -66,11 +66,11 @@ fun ReviewsListItem(
                         .fillMaxWidth()
                 ) {
                     Text(
-                        text = stringResource(R.string.israel_peters),
+                        text = reviewItem.author,
                         style = MaterialTheme.typography.labelMedium,
                     )
                     Text(
-                        text = stringResource(R.string._26_min_ago),
+                        text = reviewItem.timePosted,
                         overflow = TextOverflow.Ellipsis,
                         style = MaterialTheme.typography.labelMedium
                     )
