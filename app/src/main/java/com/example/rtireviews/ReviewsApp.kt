@@ -29,6 +29,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.rtireviews.components.ReviewsHomeTopBar
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 // enums representing app screens
@@ -52,14 +53,20 @@ fun ReviewsApp(
     Scaffold (
         topBar = {
             if (currentScreen.name != ReviewsScreen.Welcome.name &&
-                currentScreen.name != ReviewsScreen.SignUpSuccess.name
+                currentScreen.name != ReviewsScreen.SignUpSuccess.name &&
+                currentScreen.name != ReviewsScreen.ReviewsHome.name
                 ) {
                 ReviewsAppTopBar(
                     currentScreen = currentScreen,
                     canNavigate = navController.previousBackStackEntry != null,
                     navigateUp = { navController.navigateUp() }
                 )
+            } else if (
+                currentScreen.name == ReviewsScreen.ReviewsHome.name
+                ) {
+                ReviewsHomeTopBar( navigateUp = { } )
             }
+
         },
         modifier = modifier
     ) {innerPadding ->
