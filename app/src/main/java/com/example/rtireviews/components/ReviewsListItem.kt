@@ -21,10 +21,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.rtireviews.R
+import com.example.rtireviews.data.Review
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
 fun ReviewsListItem(
+    reviewItem: Review,
     navigateToReviewPost: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -94,6 +96,13 @@ fun ReviewsListItem(
 fun ReviewsListItemPreview() {
     RTIReviewsTheme {
         ReviewsListItem(
+            Review(
+                title = "A Hot Lagos Afternoon",
+                body = R.string.lorem_ipsum_short_paragraph.toString(),
+                image = R.drawable.a_hot_lagos_afternoon_cover,
+                author = "Israel Peters",
+                timePosted = R.string._26_min_ago.toString()
+            ),
             navigateToReviewPost = { }
         )
     }

@@ -2,8 +2,11 @@ package com.example.rtireviews
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.material3.ExtendedFloatingActionButton
@@ -14,8 +17,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.rtireviews.components.ReviewsHomeScreenTab
-import com.example.rtireviews.components.ReviewsHomeTopBar
+import androidx.compose.ui.unit.dp
+import com.example.rtireviews.components.ReviewsListItem
+import com.example.rtireviews.data.Review
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 
@@ -25,7 +29,6 @@ fun ReviewsHomeScreen(
     modifier: Modifier = Modifier
 ) {
     Scaffold(
-        topBar = { ReviewsHomeTopBar(navigateUp = { }) },
         floatingActionButton = {
             ExtendedFloatingActionButton(
                 onClick = { onFabClicked() },
@@ -39,13 +42,40 @@ fun ReviewsHomeScreen(
         },
         modifier = modifier
     ) {innerPadding ->
-        Column(
-            modifier = Modifier.padding(innerPadding)
-        ) {
-
-        }
-
+        ReviewsSection(modifier = Modifier.padding(innerPadding))
     }
+}
+
+@Composable
+fun ReviewsSection(modifier: Modifier = Modifier) {
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(8.dp),
+        modifier = Modifier.padding(8.dp),
+    ) {
+        items(generateReviewsData()) {item ->
+            ReviewsListItem(
+                reviewItem = item,
+                navigateToReviewPost = {}
+            )
+        }
+    }
+}
+
+private fun generateReviewsData(): List<Review> {
+    val reviewsData: MutableList<Review> = mutableListOf()
+    for (i in 1..15) {
+        reviewsData.add(
+            Review(
+                title = "A Hot Lagos Afternoon",
+                body = R.string.lorem_ipsum_short_paragraph.toString(),
+                image = R.drawable.a_hot_lagos_afternoon_cover,
+                author = "Israel Peters",
+                timePosted = R.string._26_min_ago.toString()
+            )
+        )
+    }
+    return reviewsData
 }
 
 @Preview(
