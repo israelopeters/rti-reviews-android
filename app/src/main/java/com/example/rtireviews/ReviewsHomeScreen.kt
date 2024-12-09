@@ -16,10 +16,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat.getString
 import com.example.rtireviews.components.ReviewsListItem
 import com.example.rtireviews.data.Review
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
@@ -53,7 +51,7 @@ fun ReviewsSection(modifier: Modifier = Modifier) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(8.dp),
-        modifier = Modifier.padding(16.dp),
+        modifier = modifier.padding(16.dp),
     ) {
         items(generateReviewsData()) {item ->
             ReviewsListItem(

@@ -48,7 +48,7 @@ fun ReviewsListItem(
             ) {
                 Text(
                     text = reviewItem.title,
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.titleLarge,
                     maxLines = 1,
                     modifier = Modifier.padding(8.dp)
                 )
@@ -56,6 +56,7 @@ fun ReviewsListItem(
                     text = reviewItem.body,
                     overflow = TextOverflow.Ellipsis,
                     style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 4,
                     modifier = Modifier.padding(8.dp)
                 )
@@ -72,7 +73,8 @@ fun ReviewsListItem(
                     Text(
                         text = reviewItem.timePosted,
                         overflow = TextOverflow.Ellipsis,
-                        style = MaterialTheme.typography.labelMedium
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -98,13 +100,23 @@ fun ReviewsListItemPreview() {
         ReviewsListItem(
             Review(
                 title = "A Hot Lagos Afternoon",
-                body = R.string.lorem_ipsum_short_paragraph.toString(),
+                body = body,
                 image = R.drawable.a_hot_lagos_afternoon_cover,
                 author = "Israel Peters",
-                timePosted = R.string._26_min_ago.toString()
+                timePosted = "26 min ago"
             ),
             navigateToReviewPost = { }
         )
     }
 }
+
+private val body = "A Hot Lagos Afternoon by Promise Onyekachukwu is an exceptional and " +
+        "tasteful collection of unashamed Nigerian stories. From the captivating" +
+        " first story, “A Hot Lagos Afternoon”, where a trip to a woman’s wedding " +
+        "quickly turns into her worse nightmare, to “Lagos Living”, where a " +
+        "23-year-old quickly lands himself in Nigeria's famous Kirikiri prison " +
+        "after a failed attempt at cybercrime, the author writes a mosaic of " +
+        "stories about marriage, love and life in the country, Nigeria. This " +
+        "debut collection will leave you feeling a whirlwind of emotions but, " +
+        "more importantly, realize that just anything is possible in Nigeria."
 
