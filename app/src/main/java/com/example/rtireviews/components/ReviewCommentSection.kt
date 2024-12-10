@@ -5,10 +5,14 @@ import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -44,6 +48,9 @@ fun AddComment(
             placeholder = {
                 Text("Add a comment...")
             },
+            colors = TextFieldDefaults.colors(
+                MaterialTheme.colorScheme.surface
+            ),
             leadingIcon = {
                 Icon(
                     painter = painterResource(R.drawable.ic_comment),
@@ -51,9 +58,9 @@ fun AddComment(
                 )
             },
             trailingIcon = {
-                Text(
-                    text = "Post",
-                    color = MaterialTheme.colorScheme.primary,
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.Send,
+                    contentDescription = null,
                     modifier = Modifier
                         .clickable(onClick = onPost)
                         .padding(end = 8.dp)
