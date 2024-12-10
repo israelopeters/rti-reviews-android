@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
@@ -35,15 +34,6 @@ import androidx.compose.ui.unit.dp
 import com.example.rtireviews.R
 import com.example.rtireviews.data.Comment
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
-
-@Composable
-fun ReviewCommentSection(
-    onPostClick: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    AddComment(onPost = onPostClick)
-    // CommentList()
-}
 
 @Composable
 fun AddComment(
@@ -71,7 +61,7 @@ fun AddComment(
             trailingIcon = {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.Send,
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.send_post_button),
                     modifier = Modifier
                         .clickable(onClick = onPost)
                         .padding(end = 8.dp)
