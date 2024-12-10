@@ -29,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.rtireviews.R
@@ -56,7 +57,7 @@ fun AddComment(
             value = commentText,
             onValueChange = { commentText = it },
             placeholder = {
-                Text("Add a comment...")
+                Text(stringResource(R.string.add_a_comment))
             },
             colors = TextFieldDefaults.colors(
                 MaterialTheme.colorScheme.surface
@@ -96,7 +97,9 @@ fun CommentItem(
         ) {
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp)
             ) {
                 Text(
                     text = comment.author,
@@ -131,7 +134,7 @@ fun CommentItem(
                 ) {
                     Icon(
                         Icons.Default.FavoriteBorder,
-                        contentDescription = "Like button."
+                        contentDescription = stringResource(R.string.like_button)
                     )
                 }
                 Text(
