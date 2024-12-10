@@ -5,6 +5,7 @@ import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -38,11 +39,13 @@ fun ReviewsListItem(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(8.dp)
         ) {
-            Image(
-                painter = painterResource(reviewItem.image),
-                contentDescription = stringResource(R.string.review_post_image),
-                modifier = Modifier.fillMaxWidth().padding(top = 16.dp)
-            )
+            Card {
+                Image(
+                    painter = painterResource(reviewItem.image),
+                    contentDescription = stringResource(R.string.review_post_image),
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
             Column(
                 modifier = Modifier.padding(8.dp)
             ) {
@@ -72,7 +75,6 @@ fun ReviewsListItem(
                     )
                     Text(
                         text = reviewItem.timePosted,
-                        overflow = TextOverflow.Ellipsis,
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -100,8 +102,8 @@ fun ReviewsListItemPreview() {
         ReviewsListItem(
             Review(
                 title = "A Hot Lagos Afternoon",
-                body = body,
-                image = R.drawable.a_hot_lagos_afternoon_cover,
+                body = bodyGlobalPreview,
+                image = R.drawable.ahla_cover,
                 author = "Israel Peters",
                 timePosted = "26 min ago"
             ),
@@ -110,7 +112,7 @@ fun ReviewsListItemPreview() {
     }
 }
 
-private val body = "A Hot Lagos Afternoon by Promise Onyekachukwu is an exceptional and " +
+val bodyGlobalPreview = "A Hot Lagos Afternoon by Promise Onyekachukwu is an exceptional and " +
         "tasteful collection of unashamed Nigerian stories. From the captivating" +
         " first story, “A Hot Lagos Afternoon”, where a trip to a woman’s wedding " +
         "quickly turns into her worse nightmare, to “Lagos Living”, where a " +

@@ -69,7 +69,7 @@ private fun generateReviewsData(): List<Review> {
             Review(
                 title = "A Hot Lagos Afternoon",
                 body = body,
-                image = R.drawable.a_hot_lagos_afternoon_cover,
+                image = R.drawable.ahla_cover,
                 author = "Israel Peters",
                 timePosted = "26 min ago"
             )
