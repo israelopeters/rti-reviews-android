@@ -12,32 +12,32 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.rtireviews.R
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rtireviews.components.AddComment
 import com.example.rtireviews.components.CommentItem
 import com.example.rtireviews.components.ReviewPostDetail
 import com.example.rtireviews.data.Comment
-import com.example.rtireviews.data.Review
-import com.example.rtireviews.data.TestData
-import com.example.rtireviews.data.TestData.Companion.bodyAhla
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
 fun ReviewDetailScreen(
-    review: Review = TestData.generateSingleReview(),
+    reviewViewModel: ReviewViewModel = viewModel(),
     onFabClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val reviewUiState by reviewViewModel.uiState.collectAsState()
     Column(
         modifier = modifier.fillMaxSize()
             .verticalScroll(rememberScrollState())
     ) {
-        ReviewPostDetail(review)
+        ReviewPostDetail(reviewUiState.currentReview)
         AddComment({ })
-        CommentSection(review.comments)
+        CommentSection(reviewUiState.currentReview.comments)
     }
 }
 
@@ -71,14 +71,7 @@ fun CommentSection(
 fun ReviewDetailScreenPreview() {
     RTIReviewsTheme {
         ReviewDetailScreen(
-            review = Review(
-                title = "A Hot Lagos Afternoon",
-                body = bodyAhla, // From TestData class
-                image = R.drawable.ahla_cover,
-                author = "Israel Peters",
-                timePosted = "26 min ago",
-                comments = TestData.generateCommentsData()
-            ),
+            reviewViewModel = ReviewViewModel(),
             onFabClicked = { }
         )
     }

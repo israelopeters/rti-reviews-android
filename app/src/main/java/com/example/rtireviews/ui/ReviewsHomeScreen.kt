@@ -16,21 +16,25 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rtireviews.components.ReviewsListItem
 import com.example.rtireviews.data.Review
-import com.example.rtireviews.data.TestData
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 
 @Composable
 fun ReviewsHomeScreen(
+    reviewsViewModel: ReviewViewModel = viewModel(),
+    onReviewItemClick: () -> Unit,
     onFabClicked: () -> Unit,
-    onReviewItemClick: (Review) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val reviewsListUiState by reviewsViewModel.uiListUiState.collectAsState()
     Scaffold(
         floatingActionButton = {
             ExtendedFloatingActionButton(
@@ -46,6 +50,8 @@ fun ReviewsHomeScreen(
         modifier = modifier
     ) {innerPadding ->
         ReviewsSection(
+            reviewsViewModel = reviewsViewModel,
+            reviewsList = reviewsListUiState.currentReviewsList,
             onReviewItemClick = onReviewItemClick,
             modifier = Modifier.padding(innerPadding)
         )
@@ -54,7 +60,9 @@ fun ReviewsHomeScreen(
 
 @Composable
 fun ReviewsSection(
-    onReviewItemClick: (Review) -> Unit,
+    reviewsViewModel: ReviewViewModel,
+    reviewsList: List<Review>,
+    onReviewItemClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -62,10 +70,13 @@ fun ReviewsSection(
         contentPadding = PaddingValues(8.dp),
         modifier = modifier.fillMaxWidth(),
     ) {
-        items(TestData.generateReviewsData()) {item ->
+        items(reviewsList) {item ->
             ReviewsListItem(
                 reviewItem = item,
-                navigateToReviewPost = { onReviewItemClick(item) }
+                navigateToReviewPost = {
+                    reviewsViewModel.updateUiState(item)
+                    onReviewItemClick()
+                }
             )
         }
     }
@@ -85,7 +96,7 @@ fun ReviewsSection(
 fun ReviewsHomeScreenPreview() {
     RTIReviewsTheme {
         ReviewsHomeScreen(
-            onReviewItemClick = { },
+            onReviewItemClick = {},
             onFabClicked = { }
         )
     }
