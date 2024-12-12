@@ -9,6 +9,7 @@ class TestData {
         val bodyOma = "Of Musical Affairs is the debut collection of Mwangi Nyambura. The Kenyan author has set out to captivate you with this witty, concise and perfect display of lyrical prose in this beautiful collection. From “A Man Scorned” to the eponymous “Of Musical Affairs”, the author proves undoubtedly that a blend of music and fiction can never go wrong. The collection is a lyrical painting of life and the darker side of love and attraction. If imagination makes the writer, Mwangi certainly has much of it on display in this collection. A perfect synergy of music, fiction and men scorned by love, the collection promises you stories that will leave you wishing to be at a concert in Kenya or desiring even more stories from the author."
 
         private val reviewAhla = Review(
+            id = 1,
             title = "A Hot Lagos Afternoon",
             body = bodyAhla,
             image = R.drawable.ahla_cover,
@@ -17,6 +18,7 @@ class TestData {
             comments = generateCommentsData()
         )
         private val reviewKcfn = Review(
+            id = 2,
             title = "Ka Chi Foo Nu",
             body = bodyKfcn,
             image = R.drawable.kcfn_cover,
@@ -25,6 +27,7 @@ class TestData {
             comments = listOf()
         )
         private val reviewOma = Review(
+            id =3,
             title = "Of Musical Affairs",
             body = bodyOma,
             image = R.drawable.oma_cover,

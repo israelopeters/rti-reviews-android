@@ -101,6 +101,7 @@ fun ReviewsListItemPreview() {
     RTIReviewsTheme {
         ReviewsListItem(
             Review(
+                id = 5,
                 title = "A Hot Lagos Afternoon",
                 body = bodyGlobalPreview,
                 image = R.drawable.ahla_cover,

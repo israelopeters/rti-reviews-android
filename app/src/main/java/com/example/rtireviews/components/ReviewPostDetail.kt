@@ -99,6 +99,7 @@ fun ReviewsPostDetailPreview() {
 }
 
 val reviewGLobalTest = Review(
+    id = 4,
     title = "A Hot Lagos Afternoon",
     body = bodyGlobalPreview,
     image = R.drawable.ahla_cover,

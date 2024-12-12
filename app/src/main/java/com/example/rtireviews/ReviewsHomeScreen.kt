@@ -20,6 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.rtireviews.components.ReviewsListItem
+import com.example.rtireviews.components.reviewGLobalTest
+import com.example.rtireviews.data.Review
 import com.example.rtireviews.data.TestData
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
@@ -27,6 +29,7 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 @Composable
 fun ReviewsHomeScreen(
     onFabClicked: () -> Unit,
+    onReviewItemClick: (Review) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
@@ -43,12 +46,18 @@ fun ReviewsHomeScreen(
         },
         modifier = modifier
     ) {innerPadding ->
-        ReviewsSection(modifier = Modifier.padding(innerPadding))
+        ReviewsSection(
+            onReviewItemClick = onReviewItemClick,
+            modifier = Modifier.padding(innerPadding)
+        )
     }
 }
 
 @Composable
-fun ReviewsSection(modifier: Modifier = Modifier) {
+fun ReviewsSection(
+    onReviewItemClick: (Review) -> Unit,
+    modifier: Modifier = Modifier
+) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(8.dp),
@@ -57,7 +66,7 @@ fun ReviewsSection(modifier: Modifier = Modifier) {
         items(TestData.generateReviewsData()) {item ->
             ReviewsListItem(
                 reviewItem = item,
-                navigateToReviewPost = {}
+                navigateToReviewPost = { onReviewItemClick(item) }
             )
         }
     }
@@ -77,6 +86,7 @@ fun ReviewsSection(modifier: Modifier = Modifier) {
 fun ReviewsHomeScreenPreview() {
     RTIReviewsTheme {
         ReviewsHomeScreen(
+            onReviewItemClick = { },
             onFabClicked = { }
         )
     }
