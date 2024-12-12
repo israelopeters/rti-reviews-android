@@ -15,8 +15,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -29,8 +27,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.rtireviews.components.ReviewPostDetail
 import com.example.rtireviews.components.ReviewsHomeTopBar
+import com.example.rtireviews.ui.ReviewDetailScreen
+import com.example.rtireviews.ui.ReviewsHomeScreen
+import com.example.rtireviews.ui.SignUpScreen
+import com.example.rtireviews.ui.SignUpSuccessScreen
+import com.example.rtireviews.ui.WelcomeScreen
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 // enums representing app screens

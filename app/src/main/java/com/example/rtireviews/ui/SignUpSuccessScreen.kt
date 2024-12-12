@@ -1,4 +1,4 @@
-package com.example.rtireviews
+package com.example.rtireviews.ui
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
@@ -21,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.rtireviews.R
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
