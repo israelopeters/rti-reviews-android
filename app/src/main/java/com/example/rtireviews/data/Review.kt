@@ -5,5 +5,6 @@ data class Review(
     val body: String,
     val image: Int,
     val author: String,
-    val timePosted: String
+    val timePosted: String,
+    val comments: List<Comment>
 )

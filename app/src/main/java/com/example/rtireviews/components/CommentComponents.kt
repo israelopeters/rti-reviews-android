@@ -33,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.rtireviews.R
 import com.example.rtireviews.data.Comment
+import com.example.rtireviews.data.TestData
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
@@ -66,7 +67,8 @@ fun AddComment(
                         .clickable(onClick = onPost)
                         .padding(end = 8.dp)
                 )
-            }
+            },
+            modifier = Modifier.fillMaxWidth()
         )
     }
 }
@@ -168,15 +170,6 @@ fun AddCommentPreview() {
 @Composable
 fun CommentItemPreview() {
     RTIReviewsTheme {
-        CommentItem(commentGlobalTest)
+        CommentItem(TestData.generateSingleComment())
     }
 }
-
-val commentGlobalTest = Comment(
-    id = 1L,
-    author = "Samuel Adeyeye",
-    body = "I could not agree more. I have read the book" +
-            "and share very similar sentiments.",
-    timePosted = "1h ago",
-    likes = 13
-)

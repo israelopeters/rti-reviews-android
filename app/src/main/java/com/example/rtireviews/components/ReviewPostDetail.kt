@@ -23,7 +23,7 @@ import com.example.rtireviews.data.Review
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
-fun ReviewsPostDetail(
+fun ReviewPostDetail(
     reviewItem: Review,
     modifier: Modifier = Modifier
 ) {
@@ -54,7 +54,7 @@ fun ReviewsPostDetail(
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
-                    .padding(vertical = 16.dp, horizontal = 8.dp)
+                    .padding(vertical = 8.dp, horizontal = 8.dp)
                     .fillMaxWidth()
             ) {
                 Text(
@@ -67,8 +67,9 @@ fun ReviewsPostDetail(
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
+                val commentsCount = reviewItem.comments.size.toString()
                 Text(
-                    text = "2 Comments",
+                    text = "$commentsCount comments",
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -91,14 +92,17 @@ fun ReviewsPostDetail(
 @Composable
 fun ReviewsPostDetailPreview() {
     RTIReviewsTheme {
-        ReviewsPostDetail(
-            Review(
-                title = "A Hot Lagos Afternoon",
-                body = bodyGlobalPreview,
-                image = R.drawable.ahla_cover,
-                author = "Israel Peters",
-                timePosted = "26 min ago"
-            )
+        ReviewPostDetail(
+            reviewGLobalTest
         )
     }
 }
+
+val reviewGLobalTest = Review(
+    title = "A Hot Lagos Afternoon",
+    body = bodyGlobalPreview,
+    image = R.drawable.ahla_cover,
+    author = "Israel Peters",
+    timePosted = "26 min ago",
+    comments = listOf()
+)

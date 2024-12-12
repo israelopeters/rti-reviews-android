@@ -105,7 +105,8 @@ fun ReviewsListItemPreview() {
                 body = bodyGlobalPreview,
                 image = R.drawable.ahla_cover,
                 author = "Israel Peters",
-                timePosted = "26 min ago"
+                timePosted = "26 min ago",
+                comments = listOf()
             ),
             navigateToReviewPost = { }
         )
