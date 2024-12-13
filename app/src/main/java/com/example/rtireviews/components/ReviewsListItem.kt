@@ -5,7 +5,6 @@ import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.rtireviews.R
 import com.example.rtireviews.data.Review
+import com.example.rtireviews.data.TestData
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
@@ -32,7 +32,7 @@ fun ReviewsListItem(
     modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier.clickable { navigateToReviewPost }
+        modifier = modifier.clickable { navigateToReviewPost() }
     ) {
         Column(
             verticalArrangement = Arrangement.Center,
@@ -100,27 +100,8 @@ fun ReviewsListItem(
 fun ReviewsListItemPreview() {
     RTIReviewsTheme {
         ReviewsListItem(
-            Review(
-                id = 5,
-                title = "A Hot Lagos Afternoon",
-                body = bodyGlobalPreview,
-                image = R.drawable.ahla_cover,
-                author = "Israel Peters",
-                timePosted = "26 min ago",
-                comments = listOf()
-            ),
+            TestData.generateSingleReview(),
             navigateToReviewPost = { }
         )
     }
 }
-
-val bodyGlobalPreview = "A Hot Lagos Afternoon by Promise Onyekachukwu is an exceptional and " +
-        "tasteful collection of unashamed Nigerian stories. From the captivating" +
-        " first story, “A Hot Lagos Afternoon”, where a trip to a woman’s wedding " +
-        "quickly turns into her worse nightmare, to “Lagos Living”, where a " +
-        "23-year-old quickly lands himself in Nigeria's famous Kirikiri prison " +
-        "after a failed attempt at cybercrime, the author writes a mosaic of " +
-        "stories about marriage, love and life in the country, Nigeria. This " +
-        "debut collection will leave you feeling a whirlwind of emotions but, " +
-        "more importantly, realize that just anything is possible in Nigeria."
-

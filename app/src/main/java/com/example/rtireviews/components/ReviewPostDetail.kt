@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.rtireviews.R
 import com.example.rtireviews.data.Review
+import com.example.rtireviews.data.TestData
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
@@ -93,17 +94,7 @@ fun ReviewPostDetail(
 fun ReviewsPostDetailPreview() {
     RTIReviewsTheme {
         ReviewPostDetail(
-            reviewGLobalTest
+            TestData.generateSingleReview()
         )
     }
 }
-
-val reviewGLobalTest = Review(
-    id = 4,
-    title = "A Hot Lagos Afternoon",
-    body = bodyGlobalPreview,
-    image = R.drawable.ahla_cover,
-    author = "Israel Peters",
-    timePosted = "26 min ago",
-    comments = listOf()
-)
