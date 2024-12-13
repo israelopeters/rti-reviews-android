@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rtireviews.components.AddComment
 import com.example.rtireviews.components.CommentItem
+import com.example.rtireviews.components.CommentSection
 import com.example.rtireviews.components.ReviewPostDetail
 import com.example.rtireviews.data.Comment
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
@@ -38,22 +39,6 @@ fun ReviewDetailScreen(
         ReviewPostDetail(reviewUiState.currentReview)
         AddComment({ })
         CommentSection(reviewUiState.currentReview.comments)
-    }
-}
-
-@Composable
-fun CommentSection(
-    commentList: List<Comment>,
-    modifier: Modifier = Modifier
-) {
-    LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(4.dp),
-        modifier = modifier.padding(8.dp),
-    ) {
-        items(commentList) {item ->
-            CommentItem(item)
-        }
     }
 }
 
