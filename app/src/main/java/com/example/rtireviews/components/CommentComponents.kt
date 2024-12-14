@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -46,7 +48,7 @@ fun AddComment(
 ) {
     var commentText by rememberSaveable { mutableStateOf("") }
 
-    Box(modifier = modifier) {
+    Box(modifier = modifier.padding(bottom = 8.dp)) {
         TextField(
             value = commentText,
             onValueChange = { commentText = it },
@@ -81,14 +83,33 @@ fun CommentSection(
     commentList: List<Comment>,
     modifier: Modifier = Modifier
 ) {
-    LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(4.dp),
-        modifier = modifier.padding(8.dp),
-    ) {
-        items(commentList) {item ->
-            CommentItem(item)
+    Box(modifier = modifier) {
+        if (commentList.isEmpty()) {
+            Text(
+                text = stringResource(R.string.no_comments_yet),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(start = 8.dp)
+            )
+        } else {
+            LazyColumn(
+                verticalArrangement = Arrangement.spacedBy(0.dp),
+                contentPadding = PaddingValues(8.dp)
+            ) {
+                item {
+                    AddComment({ })
+                }
+                items(commentList) { item ->
+                    CommentItem(item)
+                }
+            }
         }
+    }
+}
+
+fun LazyListScope.commentsList(commentsList: List<Comment>) {
+    items(count = commentsList.size) {item ->
+        CommentItem(commentsList[item])
     }
 }
 
@@ -99,7 +120,7 @@ fun CommentItem(
 ) {
     Card(
         shape = MaterialTheme.shapes.small,
-        modifier = modifier.padding(16.dp)
+        modifier = modifier.padding(vertical = 8.dp, horizontal = 16.dp)
     ) {
         Column(
             horizontalAlignment = Alignment.Start,
@@ -190,5 +211,22 @@ fun AddCommentPreview() {
 fun CommentItemPreview() {
     RTIReviewsTheme {
         CommentItem(TestData.generateSingleComment())
+    }
+}
+
+@Preview(
+    showBackground = true,
+    uiMode = UI_MODE_NIGHT_NO,
+    name = "DefaultPreviewLight"
+)
+@Preview(
+    showBackground = true,
+    uiMode = UI_MODE_NIGHT_YES,
+    name = "DefaultPreviewDark"
+)
+@Composable
+fun CommentSectionPreview() {
+    RTIReviewsTheme {
+        CommentSection(TestData.generateSingleReview().comments)
     }
 }

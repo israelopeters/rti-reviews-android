@@ -80,10 +80,8 @@ fun ReviewsListItem(
                     )
                 }
             }
-
         }
     }
-
 }
 
 @Preview(

@@ -1,6 +1,6 @@
 package com.example.rtireviews.data
 
-data class Comment(
+class Comment(
     val id: Long,
     val author: String,
     val body: String,

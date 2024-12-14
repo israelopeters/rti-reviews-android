@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -29,6 +30,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.rtireviews.components.ReviewsHomeTopBar
 import com.example.rtireviews.ui.ReviewDetailScreen
+import com.example.rtireviews.ui.ReviewViewModel
 import com.example.rtireviews.ui.ReviewsHomeScreen
 import com.example.rtireviews.ui.SignUpScreen
 import com.example.rtireviews.ui.SignUpSuccessScreen
@@ -107,7 +109,7 @@ fun ReviewsApp(
             composable(route = ReviewsScreen.ReviewsHome.name) {
                 ReviewsHomeScreen(
                     onFabClicked = {},
-                    onReviewItemClick = { navController.navigate(ReviewsScreen.ReviewDetail.name)},
+                    onReviewItemClicked = { navController.navigate(ReviewsScreen.ReviewDetail.name)},
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(8.dp)

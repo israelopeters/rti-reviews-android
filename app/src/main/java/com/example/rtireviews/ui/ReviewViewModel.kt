@@ -7,10 +7,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class ReviewViewModel: ViewModel() {
-    private var _uiState = MutableStateFlow(ReviewUiState())
+    private val _uiState = MutableStateFlow(ReviewUiState())
     val uiState: StateFlow<ReviewUiState> = _uiState.asStateFlow()
 
-    private var _uiListState = MutableStateFlow(ReviewsListUiState())
+    private val _uiListState = MutableStateFlow(ReviewsListUiState())
     val uiListUiState: StateFlow<ReviewsListUiState> = _uiListState.asStateFlow()
 
     fun updateUiState(review: Review) {

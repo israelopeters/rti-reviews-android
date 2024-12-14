@@ -30,7 +30,7 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 @Composable
 fun ReviewsHomeScreen(
     reviewsViewModel: ReviewViewModel = viewModel(),
-    onReviewItemClick: () -> Unit,
+    onReviewItemClicked: () -> Unit,
     onFabClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -52,7 +52,7 @@ fun ReviewsHomeScreen(
         ReviewsSection(
             reviewsViewModel = reviewsViewModel,
             reviewsList = reviewsListUiState.currentReviewsList,
-            onReviewItemClick = onReviewItemClick,
+            onReviewItemClick = onReviewItemClicked,
             modifier = Modifier.padding(innerPadding)
         )
     }
@@ -60,7 +60,7 @@ fun ReviewsHomeScreen(
 
 @Composable
 fun ReviewsSection(
-    reviewsViewModel: ReviewViewModel,
+    reviewsViewModel: ReviewViewModel = viewModel(),
     reviewsList: List<Review>,
     onReviewItemClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -96,7 +96,7 @@ fun ReviewsSection(
 fun ReviewsHomeScreenPreview() {
     RTIReviewsTheme {
         ReviewsHomeScreen(
-            onReviewItemClick = {},
+            onReviewItemClicked = {},
             onFabClicked = { }
         )
     }
