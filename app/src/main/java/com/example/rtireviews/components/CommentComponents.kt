@@ -48,7 +48,7 @@ fun AddComment(
 ) {
     var commentText by rememberSaveable { mutableStateOf("") }
 
-    Box(modifier = modifier.padding(bottom = 8.dp)) {
+    Box(modifier = modifier.padding(vertical = 8.dp, horizontal = 16.dp)) {
         TextField(
             value = commentText,
             onValueChange = { commentText = it },
@@ -104,12 +104,6 @@ fun CommentSection(
                 }
             }
         }
-    }
-}
-
-fun LazyListScope.commentsList(commentsList: List<Comment>) {
-    items(count = commentsList.size) {item ->
-        CommentItem(commentsList[item])
     }
 }
 
@@ -180,6 +174,23 @@ fun CommentItem(
     }
 }
 
+@Composable
+fun NoComments(modifier: Modifier = Modifier) {
+    Row(
+        horizontalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.no_comments_yet),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(8.dp)
+        )
+    }
+}
+
 @Preview(
     showBackground = true,
     uiMode = UI_MODE_NIGHT_NO,
@@ -211,6 +222,23 @@ fun AddCommentPreview() {
 fun CommentItemPreview() {
     RTIReviewsTheme {
         CommentItem(TestData.generateSingleComment())
+    }
+}
+
+@Preview(
+    showBackground = true,
+    uiMode = UI_MODE_NIGHT_NO,
+    name = "DefaultPreviewLight"
+)
+@Preview(
+    showBackground = true,
+    uiMode = UI_MODE_NIGHT_YES,
+    name = "DefaultPreviewDark"
+)
+@Composable
+fun NoCommentsPreview() {
+    RTIReviewsTheme {
+        NoComments()
     }
 }
 
