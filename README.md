@@ -68,6 +68,8 @@ Shows a list of posted reviews, which can be filtered by book genre and date.
 Shows details of a posted review, including image, body text, number of likes, number of comments, and list of comments.
 
 ### Home + Review Screen Illustration
+Please watch the video in full-screen mode to see the full height at once.
+
 https://github.com/user-attachments/assets/db5f4049-5c38-46d1-ac9c-87712d09a36b
 
 
