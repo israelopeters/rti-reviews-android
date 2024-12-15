@@ -64,11 +64,15 @@ Embedded graphic <a href="http://www.freepik.com">designed by pch.vector / Freep
 ### Home Screen
 Shows a list of posted reviews, which can be filtered by book genre and date.
 
-### Profile Screen
-Shows the user's profile picture, name, and bio. It provides an option for updating the profile.
-
 ### Review Screen
 Shows details of a posted review, including image, body text, number of likes, number of comments, and list of comments.
+
+### Home + Review Screen Illustration
+https://github.com/user-attachments/assets/db5f4049-5c38-46d1-ac9c-87712d09a36b
+
+
+### Profile Screen
+Shows the user's profile picture, name, and bio. It provides an option for updating the profile.
 
 ### Add New Review Screen
 Lets the user post a new review by selecting an image locally, adding the body text, and selecting the genre of the book.
