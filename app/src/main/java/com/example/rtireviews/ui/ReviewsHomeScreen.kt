@@ -66,9 +66,9 @@ fun ReviewsSection(
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(8.dp),
-        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        contentPadding = PaddingValues(0.dp),
+        modifier = modifier,
     ) {
         items(reviewsList) {item ->
             ReviewsListItem(

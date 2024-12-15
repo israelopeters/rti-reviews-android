@@ -10,6 +10,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.DividerDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,14 +35,17 @@ fun ReviewsListItem(
     modifier: Modifier = Modifier
 ) {
     Card(
+        shape = MaterialTheme.shapes.extraSmall,
         modifier = modifier.clickable { navigateToReviewPost() }
     ) {
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(8.dp)
         ) {
-            Card {
+            Card(
+                shape = MaterialTheme.shapes.extraSmall,
+                modifier = Modifier.padding(8.dp)
+            ) {
                 Image(
                     painter = painterResource(reviewItem.image),
                     contentDescription = stringResource(R.string.review_post_image),
@@ -61,6 +67,13 @@ fun ReviewsListItem(
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 4,
+                    modifier = Modifier.padding(
+                        horizontal = 8.dp,
+                        vertical = 16.dp)
+                )
+                HorizontalDivider(
+                    thickness = 0.2.dp,
+                    color = MaterialTheme.colorScheme.inverseSurface,
                     modifier = Modifier.padding(8.dp)
                 )
                 Row(
