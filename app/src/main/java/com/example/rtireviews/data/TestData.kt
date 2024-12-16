@@ -12,7 +12,7 @@ class TestData {
             author = "Samuel Adeyeye",
             body = "I could not agree more. I have read the book" +
                     " and share very similar sentiments.",
-            timePosted = "1h ago",
+            timePosted = "12 mins ago",
             likes = 13L
         )
 
