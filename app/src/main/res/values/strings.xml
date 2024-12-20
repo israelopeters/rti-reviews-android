@@ -33,4 +33,9 @@
     <string name="send_post_button">Send Post Button.</string>
     <string name="review_post">Review Post</string>
     <string name="no_comments_yet">No comments yet.</string>
+    <string name="title">Title</string>
+    <string name="review_text">Review text</string>
+    <string name="image">Image</string>
+    <string name="submit_review">Submit Review</string>
+    <string name="select_image">Select Image</string>
 </resources>
