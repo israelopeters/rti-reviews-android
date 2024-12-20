@@ -29,6 +29,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.rtireviews.components.ReviewsHomeTopBar
+import com.example.rtireviews.ui.PostReviewScreen
 import com.example.rtireviews.ui.ReviewDetailScreen
 import com.example.rtireviews.ui.ReviewViewModel
 import com.example.rtireviews.ui.ReviewsHomeScreen
@@ -43,7 +44,8 @@ enum class ReviewsScreen(@StringRes val title: Int) {
     SignUp(title = R.string.sign_up),
     SignUpSuccess(title = R.string.sign_up_success),
     ReviewsHome(title  = R.string.reviews),
-    ReviewDetail(title = R.string.review_post)
+    ReviewDetail(title = R.string.review_post),
+    PostRevew(title = R.string.post_new_review)
 }
 
 @Composable
@@ -118,6 +120,13 @@ fun ReviewsApp(
             composable(route = ReviewsScreen.ReviewDetail.name) {
                 ReviewDetailScreen(
                     onFabClicked = { }
+                )
+            }
+            composable(route = ReviewsScreen.PostRevew.name) {
+                PostReviewScreen(
+                    onSubmitButtonClicked = {
+                        //
+                    }
                 )
             }
         }

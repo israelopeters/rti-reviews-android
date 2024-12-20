@@ -39,9 +39,20 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 @Composable
 fun PostReviewScreen(
     viewModel: ReviewViewModel = viewModel(),
-    onSubmitButtonClicked: (ReviewDto) -> Unit,
+    onSubmitButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    var reviewTitle by rememberSaveable{ mutableStateOf("") }
+    var reviewBody by rememberSaveable{ mutableStateOf("") }
+    var reviewPost by rememberSaveable{
+        mutableStateOf(
+            ReviewDto(
+                title = reviewTitle,
+                body = reviewBody,
+                image = ""
+            )
+        )
+    }
     Surface(modifier = modifier) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -52,8 +63,12 @@ fun PostReviewScreen(
         ) {
             // Image picker
             ReviewPostImageDisplay({ })
+
             // New review post form
-            PostReviewForm(onSubmitButtonClicked)
+            PostReviewForm(
+                reviewDto = reviewPost,
+                onSubmitButtonClicked = onSubmitButtonClicked
+            )
         }
     }
 }
@@ -100,29 +115,18 @@ fun ReviewPostImageDisplay(
 
 @Composable
 fun PostReviewForm(
-    onSubmitButtonClicked: (ReviewDto) -> Unit,
+    reviewDto: ReviewDto,
+    onSubmitButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var reviewTitle by rememberSaveable{ mutableStateOf("") }
-    var reviewBody by rememberSaveable{ mutableStateOf("") }
-    var reviewPost by rememberSaveable{
-        mutableStateOf(
-            ReviewDto(
-                title = reviewTitle,
-                body = reviewBody,
-                image = ""
-            )
-        )
-    }
-
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.padding(8.dp)
     ) {
         TextField(
-            value = reviewTitle,
-            onValueChange = { reviewTitle = it },
+            value = reviewDto.title,
+            onValueChange = { reviewDto.title = it },
             label = { Text(stringResource(R.string.title)) },
             maxLines = 2,
             modifier = Modifier
@@ -131,8 +135,8 @@ fun PostReviewForm(
                 .clip(MaterialTheme.shapes.small)
         )
         TextField(
-            value = reviewBody,
-            onValueChange = { reviewBody = it },
+            value = reviewDto.body,
+            onValueChange = { reviewDto.body = it },
             label = { Text(stringResource(R.string.review_text)) },
             modifier = Modifier
                 .padding(8.dp)
@@ -141,7 +145,7 @@ fun PostReviewForm(
                 .clip(MaterialTheme.shapes.small)
         )
         Button(
-            onClick = { onSubmitButtonClicked(reviewPost) },
+            onClick = onSubmitButtonClicked,
             modifier = Modifier
                 .padding(8.dp)
                 .fillMaxWidth()
