@@ -3,6 +3,10 @@ package com.example.rtireviews.ui
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.net.Uri
+import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,7 +30,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil3.compose.AsyncImage
 import com.example.rtireviews.R
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
@@ -40,12 +46,54 @@ fun PostReviewScreen(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(top = 16.dp).fillMaxSize()
+            modifier = Modifier
+                .padding(top = 16.dp)
+                .fillMaxSize()
         ) {
             // Image picker
-
+            ReviewPostImageDisplay({ })
             // New review post form
             PostReviewForm(onSubmitButtonClicked)
+        }
+    }
+}
+
+@Composable
+fun ReviewPostImageDisplay(
+    onImageSelected: (Uri) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    var imageUri: Uri by rememberSaveable { mutableStateOf("".toUri()) }
+    // Register a photo picker activity launcher to select only a single item
+    val pickMedia = rememberLauncherForActivityResult(PickVisualMedia()) { uri ->
+        if (uri != null) {
+            Log.d("PhotoPicker", "Selected URI: $uri")
+            imageUri = uri
+        } else {
+            Log.d("PhotoPicker", "No media selected")
+        }
+    }
+
+    Column {
+        if (imageUri.toString().isNotEmpty() ) {
+            AsyncImage(
+                model = imageUri,
+                contentDescription = stringResource(R.string.review_post_image),
+                modifier = modifier.fillMaxWidth().height(250.dp)
+            )
+        }
+        OutlinedButton(
+            onClick = {
+                // Launch the photo picker; user can only choose one image (no other file type)
+                pickMedia.launch(
+                    PickVisualMediaRequest(PickVisualMedia.ImageOnly)
+                )
+                // Pass the updated Uri state to the calling Composable
+                onImageSelected(imageUri)
+            },
+            modifier = modifier.padding(8.dp)
+        ) {
+            Text(stringResource(R.string.select_image))
         }
     }
 }
@@ -94,7 +142,9 @@ fun PostReviewForm(
         )
         Button(
             onClick = { onSubmitButtonClicked(reviewPost) },
-            modifier = Modifier.padding(8.dp).fillMaxWidth()
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth()
         ) {
             Text(text = stringResource(R.string.submit_review))
         }
