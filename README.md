@@ -72,12 +72,11 @@ Please watch the video in full-screen mode to see the full height at once.
 
 https://github.com/user-attachments/assets/db5f4049-5c38-46d1-ac9c-87712d09a36b
 
+### Add New Review Screen
+Lets the user post a new review by selecting an image locally, adding the body text, and selecting the genre of the book.
 
 ### Profile Screen
 Shows the user's profile picture, name, and bio. It provides an option for updating the profile.
-
-### Add New Review Screen
-Lets the user post a new review by selecting an image locally, adding the body text, and selecting the genre of the book.
 
 ### Simple App Flow Diagram
 ![rti-reviews-app-flow-diagram-2024-06-18-1053](https://github.com/user-attachments/assets/7ab39410-4d9f-4bb2-bf21-cce076a79404)
