@@ -1,6 +1,7 @@
 package com.example.rtireviews.data
 
 import com.example.rtireviews.R
+import com.example.rtireviews.ui.NewReviewUiState
 
 class TestData {
     companion object {
@@ -51,6 +52,7 @@ class TestData {
             timePosted = "Yesterday",
             comments = listOf()
         )
+
         fun generateReviewsData(): List<Review> {
             val reviewsData: MutableList<Review> = mutableListOf()
             for (i in 1..10) {
@@ -66,7 +68,29 @@ class TestData {
         fun generateSingleComment(): Comment {
             return commentGlobalTest
         }
-
+        fun generateEmptyReview(): Review {
+            return Review(
+                id = 0,
+                title = "",
+                body = "",
+                image = 0,
+                author = "User",
+                timePosted = "now",
+                comments = listOf()
+            )
+        }
+        fun saveNewReview(newReview: NewReviewUiState): Review {
+            val review = Review(
+                id = newReview.newReview.id,
+                title = newReview.newReview.title,
+                body = newReview.newReview.body,
+                image = newReview.newReview.image,
+                author = newReview.newReview.author,
+                timePosted = newReview.newReview.timePosted,
+                comments = newReview.newReview.comments
+            )
+            // Use API endpoint to persist review to datastore
+            return review
+        }
     }
-
 }
