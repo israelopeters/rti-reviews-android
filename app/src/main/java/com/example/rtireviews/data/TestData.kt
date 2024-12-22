@@ -71,10 +71,10 @@ class TestData {
         }
         fun generateEmptyReview(): Review {
             return Review(
-                id = 0,
+                id = reviewsData.lastIndex.toLong() + 1,
                 title = "",
                 body = "",
-                image = 0,
+                image = R.drawable.filler_book_image,
                 author = "User",
                 timePosted = "now",
                 comments = listOf()
