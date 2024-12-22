@@ -125,9 +125,6 @@ fun ReviewsApp(
             composable(route = ReviewsScreen.PostRevew.name) {
                 PostReviewScreen(
                     onSubmitButtonClicked = { navController.navigate(ReviewsScreen.ReviewsHome.name)},
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(8.dp)
                 )
             }
         }

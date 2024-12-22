@@ -91,7 +91,7 @@ class TestData {
                 comments = newReview.newReview.comments
             )
             reviewsData.add(review)
-            return reviewsData
+            return reviewsData.asReversed()
         }
     }
 }

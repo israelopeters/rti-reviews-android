@@ -34,7 +34,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import com.example.rtireviews.R
@@ -47,7 +46,8 @@ fun PostReviewScreen(
     onSubmitButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val reviewPost by viewModel.uiNewReviewState.collectAsStateWithLifecycle()
+    var reviewTitle by rememberSaveable { mutableStateOf("") }
+    var reviewBody by rememberSaveable { mutableStateOf("") }
     var imageUri: Uri by rememberSaveable { mutableStateOf("".toUri()) }
 
     // New review post form
@@ -72,15 +72,13 @@ fun PostReviewScreen(
                 AsyncImage(
                     model = imageUri,
                     contentDescription = stringResource(R.string.review_post_image),
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .height(250.dp)
+                    modifier = Modifier.size(width = 375.dp, height = 250.dp)
                 )
             } else {
                 Image(
                     painter = painterResource(R.drawable.filler_book_image), // Image attribution: <a href="https://www.flaticon.com/free-icons/pictures" title="pictures icons">Pictures icons created by Nikita Golubev - Flaticon</a>
                     contentDescription = stringResource(R.string.filler_book_image),
-                    modifier = Modifier.size(150.dp)
+                    modifier = Modifier.size(80.dp)
                 )
             }
             OutlinedButton(
@@ -96,8 +94,8 @@ fun PostReviewScreen(
             }
 
             TextField(
-                value = reviewPost.newReview.title,
-                onValueChange = { reviewPost.newReview.title = it },
+                value = reviewTitle,
+                onValueChange = { reviewTitle = it },
                 label = { Text(stringResource(R.string.title)) },
                 maxLines = 2,
                 modifier = Modifier
@@ -106,8 +104,8 @@ fun PostReviewScreen(
                     .clip(MaterialTheme.shapes.small)
             )
             TextField(
-                value = reviewPost.newReview.body,
-                onValueChange = { reviewPost.newReview.body = it },
+                value = reviewBody,
+                onValueChange = { reviewBody = it },
                 label = { Text(stringResource(R.string.review_text)) },
                 modifier = Modifier
                     .padding(8.dp)
@@ -117,7 +115,12 @@ fun PostReviewScreen(
             )
             Button(
                 onClick = {
-                    viewModel.updateUiListState(reviewPost) // Simulating data persistence
+                    val reviewTemp = TestData.generateEmptyReview()
+                    reviewTemp.title = reviewTitle
+                    reviewTemp.body = reviewBody
+                    viewModel.updateUiListState(
+                        NewReviewUiState(reviewTemp)
+                    )// Simulating data persistence
                     onSubmitButtonClicked()
                 },
                 modifier = Modifier
