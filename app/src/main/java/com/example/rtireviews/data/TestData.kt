@@ -80,7 +80,7 @@ class TestData {
                 comments = listOf()
             )
         }
-        fun saveNewReview(newReview: NewReviewUiState): List<Review> {
+        fun saveNewReview(newReview: NewReviewUiState) {
             val review = Review(
                 id = newReview.newReview.id,
                 title = newReview.newReview.title,
@@ -91,7 +91,9 @@ class TestData {
                 comments = newReview.newReview.comments
             )
             reviewsData.add(review)
-            return reviewsData.asReversed()
+        }
+        fun getReviewsData(): List<Review> {
+            return reviewsData
         }
     }
 }
