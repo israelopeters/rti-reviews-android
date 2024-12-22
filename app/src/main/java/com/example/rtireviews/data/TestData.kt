@@ -8,6 +8,7 @@ class TestData {
         private val bodyAhla = "A Hot Lagos Afternoon by Promise Onyekachukwu is an exceptional and tasteful collection of unashamed Nigerian stories. From the captivating first story, “A Hot Lagos Afternoon”, where a trip to a woman’s wedding quickly turns into her worse nightmare, to “Lagos Living”, where a 23-year-old quickly lands himself in Nigeria's famous Kirikiri prison after a failed attempt at cybercrime, the author writes a mosaic of stories about marriage, love and life in the country, Nigeria. This debut collection will leave you feeling a whirlwind of emotions but, more importantly, realize that just anything is possible in Nigeria."
         private val bodyKfcn = "Ka Chi Foo Nu is an intriguing collection of short stories with the prevailing theme of femicide interlaced with each story drawing you into the struggles of average women in the Nigerian society. Harachi’s work is a collage of five stories about life, love, loss and other intense emotions felt by women in the attempt to challenge a norm of female subjugation. The stories are a tribute to the souls that men have snatched. The stories are unapologetically Nigerian. And you are sure to find a character or a story that will dwell forever in your subconscious."
         private val bodyOma = "Of Musical Affairs is the debut collection of Mwangi Nyambura. The Kenyan author has set out to captivate you with this witty, concise and perfect display of lyrical prose in this beautiful collection. From “A Man Scorned” to the eponymous “Of Musical Affairs”, the author proves undoubtedly that a blend of music and fiction can never go wrong. The collection is a lyrical painting of life and the darker side of love and attraction. If imagination makes the writer, Mwangi certainly has much of it on display in this collection. A perfect synergy of music, fiction and men scorned by love, the collection promises you stories that will leave you wishing to be at a concert in Kenya or desiring even more stories from the author."
+        private val reviewsData: MutableList<Review> = mutableListOf()
         private val commentGlobalTest = Comment(
             id = 1L,
             author = "Samuel Adeyeye",
@@ -24,6 +25,7 @@ class TestData {
             }
             return commentsData
         }
+
 
         private val reviewAhla = Review(
             id = 1L,
@@ -54,7 +56,6 @@ class TestData {
         )
 
         fun generateReviewsData(): List<Review> {
-            val reviewsData: MutableList<Review> = mutableListOf()
             for (i in 1..10) {
                 reviewsData.add(reviewAhla)
                 reviewsData.add(reviewOma)
@@ -79,7 +80,7 @@ class TestData {
                 comments = listOf()
             )
         }
-        fun saveNewReview(newReview: NewReviewUiState): Review {
+        fun saveNewReview(newReview: NewReviewUiState): List<Review> {
             val review = Review(
                 id = newReview.newReview.id,
                 title = newReview.newReview.title,
@@ -89,8 +90,8 @@ class TestData {
                 timePosted = newReview.newReview.timePosted,
                 comments = newReview.newReview.comments
             )
-            // Use API endpoint to persist review to datastore
-            return review
+            reviewsData.add(review)
+            return reviewsData
         }
     }
 }

@@ -110,7 +110,7 @@ fun ReviewsApp(
             }
             composable(route = ReviewsScreen.ReviewsHome.name) {
                 ReviewsHomeScreen(
-                    onFabClicked = {},
+                    onFabClicked = { navController.navigate(ReviewsScreen.PostRevew.name) },
                     onReviewItemClicked = { navController.navigate(ReviewsScreen.ReviewDetail.name)},
                     modifier = Modifier
                         .fillMaxSize()
@@ -124,9 +124,7 @@ fun ReviewsApp(
             }
             composable(route = ReviewsScreen.PostRevew.name) {
                 PostReviewScreen(
-                    onSubmitButtonClicked = {
-                        //
-                    }
+                    onSubmitButtonClicked = { navController.navigate(ReviewsScreen.ReviewsHome.name) }
                 )
             }
         }

@@ -117,7 +117,7 @@ fun PostReviewScreen(
             )
             Button(
                 onClick = {
-                    TestData.saveNewReview(reviewPost) // Simulating data persistence
+                    viewModel.updateUiListState(reviewPost) // Simulating data persistence
                     onSubmitButtonClicked()
                 },
                 modifier = Modifier
