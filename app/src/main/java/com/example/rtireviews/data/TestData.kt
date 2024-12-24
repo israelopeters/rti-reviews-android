@@ -32,6 +32,7 @@ class TestData {
             body = bodyAhla,
             image = R.drawable.ahla_cover,
             author = "Israel Peters",
+            bookGenre = "Fiction",
             timePosted = "26 min ago",
             comments = generateCommentsData()
         )
@@ -41,6 +42,7 @@ class TestData {
             body = bodyKfcn,
             image = R.drawable.kcfn_cover,
             author = "Omotolani Adebowale",
+            bookGenre = "Fiction",
             timePosted = "2h ago",
             comments = listOf()
         )
@@ -50,6 +52,7 @@ class TestData {
             body = bodyOma,
             image = R.drawable.oma_cover,
             author = "Ami Okorie",
+            bookGenre = "Fiction",
             timePosted = "Yesterday",
             comments = listOf()
         )
@@ -75,6 +78,7 @@ class TestData {
                 body = "",
                 image = R.drawable.filler_book_image,
                 author = "User",
+                bookGenre = "",
                 timePosted = "now",
                 comments = listOf()
             )
@@ -86,6 +90,7 @@ class TestData {
                 body = newReview.newReview.body,
                 image = newReview.newReview.image,
                 author = newReview.newReview.author,
+                bookGenre = newReview.newReview.bookGenre,
                 timePosted = newReview.newReview.timePosted,
                 comments = newReview.newReview.comments
             )

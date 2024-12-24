@@ -6,6 +6,7 @@ class Review(
     var body: String,
     val image: Int,
     val author: String,
+    val bookGenre: String,
     val timePosted: String,
     var comments: List<Comment> = listOf()
 )
