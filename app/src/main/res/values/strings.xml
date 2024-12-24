@@ -40,4 +40,5 @@
     <string name="select_image">Select Image</string>
     <string name="post_new_review">Post New Review</string>
     <string name="filler_book_image">Placeholder review post image</string>
+    <string name="book_genre">Book genre</string>
 </resources>

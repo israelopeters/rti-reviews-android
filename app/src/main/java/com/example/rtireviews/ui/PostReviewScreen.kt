@@ -47,6 +47,7 @@ fun PostReviewScreen(
     modifier: Modifier = Modifier
 ) {
     var reviewTitle by rememberSaveable { mutableStateOf("") }
+    var bookGenre by rememberSaveable { mutableStateOf("") }
     var reviewBody by rememberSaveable { mutableStateOf("") }
     var imageUri: Uri by rememberSaveable { mutableStateOf("".toUri()) }
 
@@ -97,6 +98,16 @@ fun PostReviewScreen(
                 value = reviewTitle,
                 onValueChange = { reviewTitle = it },
                 label = { Text(stringResource(R.string.title)) },
+                maxLines = 2,
+                modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxWidth()
+                    .clip(MaterialTheme.shapes.small)
+            )
+            TextField(
+                value = bookGenre,
+                onValueChange = { bookGenre = it },
+                label = { Text(stringResource(R.string.book_genre)) },
                 maxLines = 2,
                 modifier = Modifier
                     .padding(8.dp)
