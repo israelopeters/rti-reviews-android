@@ -26,7 +26,6 @@ class TestData {
             return commentsData
         }
 
-
         private val reviewAhla = Review(
             id = 1L,
             title = "A Hot Lagos Afternoon",
@@ -56,7 +55,7 @@ class TestData {
         )
 
         fun generateReviewsData(): List<Review> {
-            for (i in 1..10) {
+            for (i in 1..4) {
                 reviewsData.add(reviewAhla)
                 reviewsData.add(reviewOma)
                 reviewsData.add(reviewKcfn)
@@ -93,7 +92,7 @@ class TestData {
             reviewsData.add(review)
         }
         fun getReviewsData(): List<Review> {
-            return reviewsData
+            return reviewsData.asReversed()
         }
     }
 }

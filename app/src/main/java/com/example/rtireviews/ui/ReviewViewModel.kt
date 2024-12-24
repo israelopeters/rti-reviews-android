@@ -26,9 +26,4 @@ class ReviewViewModel: ViewModel() {
         TestData.saveNewReview(newReview)
         _uiListState.value = ReviewsListUiState(currentReviewsList = TestData.getReviewsData())
     }
-
-    fun persistNewReview(review: Review) {
-        _uiNewReviewState.value = NewReviewUiState(newReview = review)
-        TestData.saveNewReview(_uiNewReviewState.value)
-    }
 }
