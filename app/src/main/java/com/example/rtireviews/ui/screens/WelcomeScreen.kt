@@ -1,4 +1,4 @@
-package com.example.rtireviews.ui
+package com.example.rtireviews.ui.screens
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

@@ -1,4 +1,4 @@
-package com.example.rtireviews.ui
+package com.example.rtireviews.ui.screens
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
@@ -38,6 +38,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import com.example.rtireviews.R
 import com.example.rtireviews.data.TestData
+import com.example.rtireviews.ui.NewReviewUiState
+import com.example.rtireviews.ui.ReviewViewModel
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable

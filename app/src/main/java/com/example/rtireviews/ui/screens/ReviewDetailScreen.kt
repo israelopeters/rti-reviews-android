@@ -1,4 +1,4 @@
-package com.example.rtireviews.ui
+package com.example.rtireviews.ui.screens
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
@@ -16,6 +16,7 @@ import com.example.rtireviews.components.AddComment
 import com.example.rtireviews.components.CommentItem
 import com.example.rtireviews.components.NoComments
 import com.example.rtireviews.components.ReviewPostDetail
+import com.example.rtireviews.ui.ReviewViewModel
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable

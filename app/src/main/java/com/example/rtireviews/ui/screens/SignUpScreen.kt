@@ -1,4 +1,4 @@
-package com.example.rtireviews.ui
+package com.example.rtireviews.ui.screens
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
