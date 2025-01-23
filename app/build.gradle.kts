@@ -39,6 +39,8 @@ android {
     }
 }
 
+val ktor_version: String by project
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -59,6 +61,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+    implementation("io.ktor:ktor-client-cio:$ktor_version")
 }
 java {
     toolchain {
