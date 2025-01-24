@@ -1,12 +1,27 @@
 package com.example.rtireviews.data
 
-class Review(
+import java.time.LocalDateTime
+
+data class Review(
     val id: Long,
     var title: String,
     var body: String,
     val image: Int,
-    val author: String,
+    val likeCount: Long,
     val bookGenre: String,
-    val timePosted: String,
-    var comments: List<Comment> = listOf()
+    val timePosted: LocalDateTime,
+    var comments: List<Comment> = listOf(),
+    val genreList: List<ReviewGenre> = listOf(),
+    val author: User,
 )
+
+enum class ReviewGenre {
+    THRILLER,
+    CRIME,
+    SELF_HELP,
+    ROMANCE,
+    FICTION,
+    AFRICAN,
+    BIOGRAPHY,
+    HISTORY
+}
