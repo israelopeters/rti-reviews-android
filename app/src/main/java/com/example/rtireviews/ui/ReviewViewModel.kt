@@ -1,7 +1,7 @@
 package com.example.rtireviews.ui
 
 import androidx.lifecycle.ViewModel
-import com.example.rtireviews.data.Review
+import com.example.rtireviews.model.Review
 import com.example.rtireviews.data.TestData
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

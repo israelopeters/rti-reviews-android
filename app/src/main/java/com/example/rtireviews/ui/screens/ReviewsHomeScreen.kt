@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rtireviews.components.ReviewsListItem
-import com.example.rtireviews.data.Review
+import com.example.rtireviews.model.Review
 import com.example.rtireviews.ui.ReviewViewModel
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 

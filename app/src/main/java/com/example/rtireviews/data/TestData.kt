@@ -1,6 +1,8 @@
 package com.example.rtireviews.data
 
 import com.example.rtireviews.R
+import com.example.rtireviews.model.Comment
+import com.example.rtireviews.model.Review
 import com.example.rtireviews.ui.NewReviewUiState
 
 class TestData {

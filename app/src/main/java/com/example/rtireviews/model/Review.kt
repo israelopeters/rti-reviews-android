@@ -1,4 +1,4 @@
-package com.example.rtireviews.data
+package com.example.rtireviews.model
 
 import java.time.LocalDateTime
 
