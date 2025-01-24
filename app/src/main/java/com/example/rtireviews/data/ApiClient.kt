@@ -8,7 +8,7 @@ import io.ktor.client.request.get
 import io.ktor.client.statement.HttpResponse
 import io.ktor.serialization.jackson.jackson
 
-class RemoteData {
+class ApiClient {
     companion object {
         val client = HttpClient(CIO) {
             install(ContentNegotiation) {
