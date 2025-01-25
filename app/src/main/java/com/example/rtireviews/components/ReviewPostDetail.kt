@@ -58,19 +58,19 @@ fun ReviewPostDetail(
                     .padding(vertical = 8.dp, horizontal = 8.dp)
                     .fillMaxWidth()
             ) {
+
                 Text(
-                    text = reviewItem.author,
+                    text = "${reviewItem.author.firstName} ${reviewItem.author.lastName}",
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Text(
-                    text = reviewItem.timePosted,
+                    text = reviewItem.timePosted.toString(),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
-                val commentsCount = reviewItem.comments.size.toString()
                 Text(
-                    text = "$commentsCount comments",
+                    text = "${reviewItem.comments.size.toString()} comments",
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

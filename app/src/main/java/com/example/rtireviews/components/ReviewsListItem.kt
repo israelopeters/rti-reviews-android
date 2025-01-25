@@ -81,11 +81,11 @@ fun ReviewsListItem(
                         .fillMaxWidth()
                 ) {
                     Text(
-                        text = reviewItem.author,
+                        text = "${reviewItem.author.firstName} ${reviewItem.author.lastName}",
                         style = MaterialTheme.typography.labelMedium,
                     )
                     Text(
-                        text = reviewItem.timePosted,
+                        text = reviewItem.timePosted.toString(),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )

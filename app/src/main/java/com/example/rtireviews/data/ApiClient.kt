@@ -1,27 +1,14 @@
 package com.example.rtireviews.data
 
-import com.example.rtireviews.model.Review
-import io.ktor.client.*
-import io.ktor.client.call.body
-import io.ktor.client.engine.cio.*
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.request.get
-import io.ktor.client.statement.HttpResponse
 import io.ktor.serialization.jackson.jackson
 
-class ApiClient {
-    companion object {
-        val client = HttpClient(CIO) {
-            install(ContentNegotiation) {
-                jackson()
-            }
-        }
-
-        suspend fun getReviews(): Review {
-            val response: HttpResponse = client.get("http://localhost:9090/reviews/2")
-            val review: Review = response.body()
-            client.close()
-            return review
+object ApiClient {
+    val client = HttpClient(CIO) {
+        install(ContentNegotiation) {
+            jackson()
         }
     }
 }

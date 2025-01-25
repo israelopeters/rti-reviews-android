@@ -18,6 +18,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -33,7 +34,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rtireviews.R
+import com.example.rtireviews.ui.ReviewViewModel
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
@@ -42,6 +45,10 @@ fun WelcomeScreen(
     onSignUpClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+
+    val reviewViewModel: ReviewViewModel = viewModel()
+    val review by reviewViewModel.uiState.collectAsState()
+
     Column (
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -51,7 +58,7 @@ fun WelcomeScreen(
     ) {
         AppDetails(
             image = R.drawable.welcome_screen_image,
-            header = R.string.welcome_screen_header,
+            header = review.currentReview.title //R.string.welcome_screen_header,
         )
         AppLogin(onLogInClicked = { })
         AppSignUp(onSignUpClicked = onSignUpClicked)
@@ -61,7 +68,7 @@ fun WelcomeScreen(
 @Composable
 fun AppDetails(
     @DrawableRes image: Int,
-    @StringRes header: Int,
+    header: String, //@StringRes header: Int,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -69,7 +76,7 @@ fun AppDetails(
         modifier = modifier.padding(top = 48.dp)
     ) {
         Text(
-            text = stringResource(header),
+            text = header, //stringResource(header),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onBackground,
@@ -167,7 +174,7 @@ fun AppDetailsPreview() {
     RTIReviewsTheme {
         AppDetails(
             R.drawable.welcome_screen_image,
-            R.string.welcome_screen_header
+            "RTI Reviews"//R.string.welcome_screen_header
         )
     }
 }

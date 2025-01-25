@@ -16,6 +16,7 @@ import com.example.rtireviews.components.AddComment
 import com.example.rtireviews.components.CommentItem
 import com.example.rtireviews.components.NoComments
 import com.example.rtireviews.components.ReviewPostDetail
+import com.example.rtireviews.data.ApiRepository
 import com.example.rtireviews.ui.ReviewViewModel
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
@@ -65,7 +66,7 @@ fun ReviewDetailScreen(
 fun ReviewDetailScreenPreview() {
     RTIReviewsTheme {
         ReviewDetailScreen(
-            reviewViewModel = ReviewViewModel(),
+            reviewViewModel = ReviewViewModel(apiRepository = ApiRepository()),
             onFabClicked = { }
         )
     }
