@@ -17,7 +17,7 @@ import com.example.rtireviews.components.CommentItem
 import com.example.rtireviews.components.NoComments
 import com.example.rtireviews.components.ReviewPostDetail
 import com.example.rtireviews.data.ApiRepository
-import com.example.rtireviews.ui.ReviewViewModel
+import com.example.rtireviews.service.ReviewViewModel
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable

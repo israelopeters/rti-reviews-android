@@ -1,18 +1,20 @@
-package com.example.rtireviews.ui
+package com.example.rtireviews.service
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rtireviews.data.ApiRepository
 import com.example.rtireviews.model.Review
 import com.example.rtireviews.data.TestData
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
-class ReviewViewModel(
-    private val apiRepository: ApiRepository =  ApiRepository()
+@HiltViewModel
+class ReviewViewModel @Inject constructor(
+    private val apiRepository: ApiRepository
 ): ViewModel() {
     private val _uiState = MutableStateFlow(ReviewUiState())
     val uiState: StateFlow<ReviewUiState> = _uiState.asStateFlow()

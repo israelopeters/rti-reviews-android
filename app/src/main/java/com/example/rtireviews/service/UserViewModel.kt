@@ -1,4 +1,4 @@
-package com.example.rtireviews.ui
+package com.example.rtireviews.service
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

@@ -4,7 +4,7 @@ import com.example.rtireviews.R
 import com.example.rtireviews.model.Comment
 import com.example.rtireviews.model.Review
 import com.example.rtireviews.model.User
-import com.example.rtireviews.ui.NewReviewUiState
+import com.example.rtireviews.service.NewReviewUiState
 import java.time.LocalDate
 import java.time.LocalDateTime
 
