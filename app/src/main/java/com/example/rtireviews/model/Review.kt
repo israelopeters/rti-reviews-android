@@ -9,7 +9,7 @@ data class Review(
     val image: Int,
     val likeCount: Long,
     val bookGenre: String,
-    val timePosted: String, // Resolve to LocalDateTime to match API response
+    val timePosted: LocalDateTime,
     var comments: List<Comment> = listOf(),
     val genreList: List<ReviewGenre> = listOf(),
     val author: User,

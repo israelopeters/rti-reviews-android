@@ -11,7 +11,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 
-class ReviewViewModel(private val apiRepository: ApiRepository): ViewModel() {
+class ReviewViewModel(
+    private val apiRepository: ApiRepository =  ApiRepository()
+): ViewModel() {
     private val _uiState = MutableStateFlow(ReviewUiState())
     val uiState: StateFlow<ReviewUiState> = _uiState.asStateFlow()
 
@@ -20,6 +22,10 @@ class ReviewViewModel(private val apiRepository: ApiRepository): ViewModel() {
 
     private val _uiNewReviewState = MutableStateFlow(NewReviewUiState())
     val uiNewReviewState: StateFlow<NewReviewUiState> = _uiNewReviewState.asStateFlow()
+
+    init {
+        fetchRemoteReview()
+    }
 
     fun updateUiState(review: Review) {
         _uiState.value = ReviewUiState(currentReview = review)
@@ -33,7 +39,7 @@ class ReviewViewModel(private val apiRepository: ApiRepository): ViewModel() {
     private fun fetchRemoteReview(id: Long = 2) {
         viewModelScope.launch {
             val remoteReview = apiRepository.getSingleReview(id)
-            updateUiState(remoteReview)
+            _uiState.value = ReviewUiState(remoteReview)
         }
     }
 }

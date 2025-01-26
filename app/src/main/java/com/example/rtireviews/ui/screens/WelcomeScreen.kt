@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rtireviews.R
 import com.example.rtireviews.ui.ReviewViewModel
+import com.example.rtireviews.ui.UserViewModel
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
@@ -103,10 +104,7 @@ fun AppLogin(
     onLogInClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-
-    // TODO: Apply ViewModel (Best practice: https://developer.android.com/develop/ui/compose/text/user-input)
-    var email by remember { mutableStateOf("") }
-    var password by rememberSaveable { mutableStateOf("") }
+    val userViewModel: UserViewModel = UserViewModel()
 
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
@@ -114,8 +112,8 @@ fun AppLogin(
         modifier = modifier.padding(24.dp)
     ) {
         TextField(
-            value = email,
-            onValueChange = { email = it },
+            value = userViewModel.email,
+            onValueChange = { userViewModel.updateEmail(it) },
             label = { Text(stringResource(R.string.email)) },
             modifier = Modifier
                 .padding(8.dp)
@@ -123,8 +121,8 @@ fun AppLogin(
                 .clip(MaterialTheme.shapes.medium)
         )
         TextField(
-            value = password,
-            onValueChange = { password = it },
+            value = userViewModel.password,
+            onValueChange = { userViewModel.updatePassword(it) },
             label = { Text(stringResource(R.string.password)) },
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -174,7 +172,7 @@ fun AppDetailsPreview() {
     RTIReviewsTheme {
         AppDetails(
             R.drawable.welcome_screen_image,
-            "RTI Reviews"//R.string.welcome_screen_header
+            "RTI Reviews"
         )
     }
 }

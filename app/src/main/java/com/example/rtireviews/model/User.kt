@@ -10,7 +10,7 @@ data class User(
     val bio: String,
     val email: String,
     val password: String,
-    val dateCreated: String, // Resolve to LocalDate to match API response
+    val dateCreated: LocalDate,
     val reviews: Set<Review>,
     val roles: List<Role>
 )
