@@ -22,7 +22,7 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
 fun ReviewDetailScreen(
-    reviewViewModel: ReviewViewModel = viewModel(),
+    reviewViewModel: ReviewViewModel,
     onFabClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {

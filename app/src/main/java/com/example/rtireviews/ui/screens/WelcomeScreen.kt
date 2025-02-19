@@ -1,6 +1,9 @@
 package com.example.rtireviews.ui.screens
 
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -31,20 +34,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rtireviews.R
+import com.example.rtireviews.data.ApiRepository
 import com.example.rtireviews.service.ReviewViewModel
 import com.example.rtireviews.service.UserViewModel
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
 fun WelcomeScreen(
+    userViewModel: UserViewModel,
     onLogInClicked: () -> Unit,
     onSignUpClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-
-    val reviewViewModel: ReviewViewModel = viewModel()
-    val review by reviewViewModel.uiState.collectAsState()
-
     Column (
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -54,9 +55,12 @@ fun WelcomeScreen(
     ) {
         AppDetails(
             image = R.drawable.welcome_screen_image,
-            header = review.currentReview.title //R.string.welcome_screen_header,
+            header = R.string.rti_reviews
         )
-        AppLogin(onLogInClicked = { })
+        AppLogin(
+            userViewModel,
+            onLogInClicked = onLogInClicked
+        )
         AppSignUp(onSignUpClicked = onSignUpClicked)
     }
 }
@@ -64,7 +68,7 @@ fun WelcomeScreen(
 @Composable
 fun AppDetails(
     @DrawableRes image: Int,
-    header: String, //@StringRes header: Int,
+    @StringRes header: Int,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -72,7 +76,7 @@ fun AppDetails(
         modifier = modifier.padding(top = 48.dp)
     ) {
         Text(
-            text = header, //stringResource(header),
+            text = stringResource(header),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onBackground,
@@ -96,10 +100,10 @@ fun AppDetails(
 
 @Composable
 fun AppLogin(
+    userViewModel: UserViewModel,
     onLogInClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val userViewModel: UserViewModel = UserViewModel()
 
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
@@ -107,7 +111,7 @@ fun AppLogin(
         modifier = modifier.padding(24.dp)
     ) {
         TextField(
-            value = userViewModel.email,
+            value = "",
             onValueChange = { userViewModel.updateEmail(it) },
             label = { Text(stringResource(R.string.email)) },
             modifier = Modifier
@@ -116,7 +120,7 @@ fun AppLogin(
                 .clip(MaterialTheme.shapes.medium)
         )
         TextField(
-            value = userViewModel.password,
+            value = "",
             onValueChange = { userViewModel.updatePassword(it) },
             label = { Text(stringResource(R.string.password)) },
             visualTransformation = PasswordVisualTransformation(),
@@ -167,7 +171,7 @@ fun AppDetailsPreview() {
     RTIReviewsTheme {
         AppDetails(
             R.drawable.welcome_screen_image,
-            "RTI Reviews"
+            R.string.rti_reviews
         )
     }
 }
@@ -175,8 +179,9 @@ fun AppDetailsPreview() {
 @Preview(showBackground = true)
 @Composable
 fun AppLoginPreview() {
+    val apiRepository = ApiRepository()
     RTIReviewsTheme {
-        AppLogin(onLogInClicked = { })
+        AppLogin(UserViewModel(apiRepository), onLogInClicked = { })
     }
 }
 
@@ -188,11 +193,24 @@ fun AppSignUpPreview() {
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+    uiMode = UI_MODE_NIGHT_NO,
+    name = "DefaultPreviewLight"
+)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+    uiMode = UI_MODE_NIGHT_YES,
+    name = "DefaultPreviewDark"
+)
 @Composable
 fun WelcomeScreenPreview() {
+    val apiRepository = ApiRepository()
     RTIReviewsTheme {
         WelcomeScreen(
+            UserViewModel(apiRepository),
             onLogInClicked = { },
             onSignUpClicked = { }
         )

@@ -44,7 +44,7 @@ import com.example.rtireviews.ui.theme.RTIReviewsTheme
 
 @Composable
 fun PostReviewScreen(
-    viewModel: ReviewViewModel = viewModel(),
+    viewModel: ReviewViewModel,
     onSubmitButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -159,6 +159,6 @@ fun PostReviewScreen(
 @Composable
 fun PostReviewScreenPreview() {
     RTIReviewsTheme {
-        PostReviewScreen(onSubmitButtonClicked = {})
+        PostReviewScreen(viewModel(), onSubmitButtonClicked = {})
     }
 }

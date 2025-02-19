@@ -1,10 +1,10 @@
 package com.example.rtireviews.model
 
-import java.time.LocalDate
-
-data class User(
+data class UserCreation(
     val firstName: String,
     val lastName: String,
+    val country: String,
+    val bio: String,
     val email: String,
-    val roles: List<Role>
+    val password: String
 )

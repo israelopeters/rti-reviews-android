@@ -28,6 +28,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.rtireviews.components.ReviewsHomeTopBar
+import com.example.rtireviews.data.ApiRepository
+import com.example.rtireviews.service.ReviewViewModel
+import com.example.rtireviews.service.UserViewModel
 import com.example.rtireviews.ui.screens.PostReviewScreen
 import com.example.rtireviews.ui.screens.ReviewDetailScreen
 import com.example.rtireviews.ui.screens.ReviewsHomeScreen
@@ -46,8 +49,13 @@ enum class ReviewsScreen(@StringRes val title: Int) {
     PostRevew(title = R.string.post_new_review)
 }
 
+val apiRepository = ApiRepository()
+val userViewModelVar = UserViewModel(apiRepository)
+
 @Composable
 fun ReviewsApp(
+    userViewModel: UserViewModel = userViewModelVar,
+    reviewViewModel: ReviewViewModel,
     navController: NavHostController = rememberNavController(),
     modifier: Modifier = Modifier
 ) {
@@ -83,7 +91,10 @@ fun ReviewsApp(
         ) {
             composable(route = ReviewsScreen.Welcome.name) {
                 WelcomeScreen(
-                    onLogInClicked = { },
+                    userViewModel,
+                    onLogInClicked = {
+                        //userViewModel.getUser()
+                    },
                     onSignUpClicked = { navController.navigate(ReviewsScreen.SignUp.name) },
                     modifier = Modifier
                         .fillMaxSize()
@@ -108,6 +119,7 @@ fun ReviewsApp(
             }
             composable(route = ReviewsScreen.ReviewsHome.name) {
                 ReviewsHomeScreen(
+                    reviewViewModel,
                     onFabClicked = { navController.navigate(ReviewsScreen.PostRevew.name) },
                     onReviewItemClicked = { navController.navigate(ReviewsScreen.ReviewDetail.name)},
                     modifier = Modifier
@@ -117,11 +129,13 @@ fun ReviewsApp(
             }
             composable(route = ReviewsScreen.ReviewDetail.name) {
                 ReviewDetailScreen(
+                    reviewViewModel,
                     onFabClicked = { }
                 )
             }
             composable(route = ReviewsScreen.PostRevew.name) {
                 PostReviewScreen(
+                    reviewViewModel,
                     onSubmitButtonClicked = { navController.navigate(ReviewsScreen.ReviewsHome.name)},
                 )
             }
