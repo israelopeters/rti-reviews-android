@@ -19,6 +19,7 @@ import com.example.rtireviews.components.ReviewPostDetail
 import com.example.rtireviews.data.ApiRepository
 import com.example.rtireviews.service.ReviewViewModel
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
+import io.ktor.client.HttpClient
 
 @Composable
 fun ReviewDetailScreen(
@@ -66,7 +67,7 @@ fun ReviewDetailScreen(
 fun ReviewDetailScreenPreview() {
     RTIReviewsTheme {
         ReviewDetailScreen(
-            reviewViewModel = ReviewViewModel(apiRepository = ApiRepository()),
+            reviewViewModel = ReviewViewModel(apiRepository = ApiRepository(HttpClient())),
             onFabClicked = { }
         )
     }

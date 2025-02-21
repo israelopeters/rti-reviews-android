@@ -38,6 +38,7 @@ import com.example.rtireviews.data.ApiRepository
 import com.example.rtireviews.service.ReviewViewModel
 import com.example.rtireviews.service.UserViewModel
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
+import io.ktor.client.HttpClient
 
 @Composable
 fun WelcomeScreen(
@@ -179,7 +180,7 @@ fun AppDetailsPreview() {
 @Preview(showBackground = true)
 @Composable
 fun AppLoginPreview() {
-    val apiRepository = ApiRepository()
+    val apiRepository = ApiRepository(HttpClient())
     RTIReviewsTheme {
         AppLogin(UserViewModel(apiRepository), onLogInClicked = { })
     }
@@ -209,7 +210,7 @@ fun AppSignUpPreview() {
 fun WelcomeScreenPreview() {
     RTIReviewsTheme {
         WelcomeScreen(
-            UserViewModel(),
+            UserViewModel(ApiRepository(HttpClient())),
             onLogInClicked = { },
             onSignUpClicked = { }
         )

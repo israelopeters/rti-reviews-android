@@ -6,6 +6,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
+import io.ktor.client.plugins.auth.Auth
+import io.ktor.client.plugins.auth.providers.BasicAuthCredentials
+import io.ktor.client.plugins.auth.providers.basic
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
@@ -38,21 +41,22 @@ class ApiModule {
                 }
                 sanitizeHeader { header -> header == HttpHeaders.Authorization }
             }
-            //        install(Auth) {
-//            basic {
-//                credentials {
-//                    BasicAuthCredentials(
-//                        username = usernameGlobal,
-//                        password = passwordGlobal
-//                    )
-//                }
-//                realm = "Access to the 'api/v1/' path"
+
+//            install(Auth) {
+//                basic {
+//                    credentials {
+//                        BasicAuthCredentials(
+//                            username = "",
+//                            password = ""
+//                        )
+//                    }
+//                    realm = "Access to the 'api/v1/' path"
 //
-//                sendWithoutRequest { request ->
-//                    true
+//                    sendWithoutRequest { request ->
+//                        true
+//                    }
 //                }
 //            }
-//        }
         }
     }
 }

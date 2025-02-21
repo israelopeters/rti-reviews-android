@@ -102,7 +102,7 @@ fun ReviewsApp(
                     userViewModel,
                     onLogInClicked = {
                         userViewModel.getUser()
-                        if (userViewModel.authenticatedUser.email != "") {
+                        if (userViewModel.authenticatedUser.email == userViewModel.email) {
                             navController.navigate(ReviewsScreen.ReviewsHome.name)
                         } else {
                             scope.launch {

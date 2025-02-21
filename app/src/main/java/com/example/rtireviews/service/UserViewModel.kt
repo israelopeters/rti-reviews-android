@@ -32,8 +32,14 @@ class UserViewModel @Inject constructor(
 
     fun getUser() {
         viewModelScope.launch(Dispatchers.IO) {
-            authenticatedUser = apiRepository.getUser(email)
+            safelyCall { authenticatedUser = apiRepository.getUser(listOf(email, password)) }
         }
+    }
+
+    suspend fun <T> safelyCall(execute: suspend () -> T): Result<T> = try {
+        Result.success(execute())
+    } catch (e: Exception) {
+        Result.failure(Throwable(message = e.message ?: "Network request error!"))
     }
 
 }
