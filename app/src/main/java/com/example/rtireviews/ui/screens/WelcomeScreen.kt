@@ -111,7 +111,7 @@ fun AppLogin(
         modifier = modifier.padding(24.dp)
     ) {
         TextField(
-            value = "",
+            value = userViewModel.email,
             onValueChange = { userViewModel.updateEmail(it) },
             label = { Text(stringResource(R.string.email)) },
             modifier = Modifier
@@ -120,7 +120,7 @@ fun AppLogin(
                 .clip(MaterialTheme.shapes.medium)
         )
         TextField(
-            value = "",
+            value = userViewModel.password,
             onValueChange = { userViewModel.updatePassword(it) },
             label = { Text(stringResource(R.string.password)) },
             visualTransformation = PasswordVisualTransformation(),

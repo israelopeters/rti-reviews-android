@@ -14,10 +14,14 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,6 +33,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.rtireviews.components.ReviewsHomeTopBar
 import com.example.rtireviews.data.ApiRepository
+import com.example.rtireviews.model.User
 import com.example.rtireviews.service.ReviewViewModel
 import com.example.rtireviews.service.UserViewModel
 import com.example.rtireviews.ui.screens.PostReviewScreen
@@ -38,6 +43,7 @@ import com.example.rtireviews.ui.screens.SignUpScreen
 import com.example.rtireviews.ui.screens.SignUpSuccessScreen
 import com.example.rtireviews.ui.screens.WelcomeScreen
 import com.example.rtireviews.ui.theme.RTIReviewsTheme
+import kotlinx.coroutines.launch
 
 // enums representing app screens
 enum class ReviewsScreen(@StringRes val title: Int) {
@@ -63,8 +69,13 @@ fun ReviewsApp(
     val currentScreen = ReviewsScreen.valueOf(
         backStackEntry?.destination?.route ?: ReviewsScreen.Welcome.name
     )
+    val scope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     Scaffold (
+        snackbarHost = {
+            SnackbarHost(hostState = snackbarHostState)
+        },
         topBar = {
             if (currentScreen.name != ReviewsScreen.Welcome.name &&
                 currentScreen.name != ReviewsScreen.SignUpSuccess.name &&
@@ -93,7 +104,14 @@ fun ReviewsApp(
                 WelcomeScreen(
                     userViewModel,
                     onLogInClicked = {
-                        //userViewModel.getUser()
+                        userViewModel.getUser()
+                        if (userViewModelVar.authenticatedUser.email != "") {
+                            navController.navigate(ReviewsScreen.ReviewsHome.name)
+                        } else {
+                            scope.launch {
+                                snackbarHostState.showSnackbar("Login error. Try again.")
+                            }
+                        }
                     },
                     onSignUpClicked = { navController.navigate(ReviewsScreen.SignUp.name) },
                     modifier = Modifier

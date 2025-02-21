@@ -42,6 +42,7 @@ android {
 }
 
 val ktor_version: String by project
+val slf4j_version: String by project
 
 dependencies {
 
@@ -68,6 +69,8 @@ dependencies {
     implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
     implementation("io.ktor:ktor-serialization-jackson:$ktor_version")
     implementation("io.ktor:ktor-client-auth:$ktor_version")
+    implementation("org.slf4j:slf4j-android:$slf4j_version")
+    implementation("io.ktor:ktor-client-logging:$ktor_version")
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 }

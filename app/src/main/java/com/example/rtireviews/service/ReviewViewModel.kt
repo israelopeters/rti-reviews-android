@@ -26,7 +26,7 @@ class ReviewViewModel @Inject constructor(
     val uiNewReviewState: StateFlow<NewReviewUiState> = _uiNewReviewState.asStateFlow()
 
     init {
-        fetchRemoteReview()
+        //fetchRemoteReview()
     }
 
     fun updateUiState(review: Review) {
