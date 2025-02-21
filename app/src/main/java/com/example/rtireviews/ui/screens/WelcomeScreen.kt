@@ -207,10 +207,9 @@ fun AppSignUpPreview() {
 )
 @Composable
 fun WelcomeScreenPreview() {
-    val apiRepository = ApiRepository()
     RTIReviewsTheme {
         WelcomeScreen(
-            UserViewModel(apiRepository),
+            UserViewModel(),
             onLogInClicked = { },
             onSignUpClicked = { }
         )

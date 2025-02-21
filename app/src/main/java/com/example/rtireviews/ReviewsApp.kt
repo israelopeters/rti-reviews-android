@@ -55,12 +55,9 @@ enum class ReviewsScreen(@StringRes val title: Int) {
     PostRevew(title = R.string.post_new_review)
 }
 
-val apiRepository = ApiRepository()
-val userViewModelVar = UserViewModel(apiRepository)
-
 @Composable
 fun ReviewsApp(
-    userViewModel: UserViewModel = userViewModelVar,
+    userViewModel: UserViewModel,
     reviewViewModel: ReviewViewModel,
     navController: NavHostController = rememberNavController(),
     modifier: Modifier = Modifier
@@ -105,7 +102,7 @@ fun ReviewsApp(
                     userViewModel,
                     onLogInClicked = {
                         userViewModel.getUser()
-                        if (userViewModelVar.authenticatedUser.email != "") {
+                        if (userViewModel.authenticatedUser.email != "") {
                             navController.navigate(ReviewsScreen.ReviewsHome.name)
                         } else {
                             scope.launch {
